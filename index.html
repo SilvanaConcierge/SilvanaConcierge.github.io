@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.I. SoulVIP Solutions</title>
+<meta name="description" content="Elite luxury concierge and AI-powered solutions — Ibiza, Tenerife, Private World">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C9A84C;
+  --gold-glow:rgba(201,168,76,.32);
+  --gold-dim:rgba(201,168,76,.1);
+  --black:#0a0a0a;
+  --dark:#111111;
+  --border:rgba(201,168,76,.18);
+  --text:#f0ece4;
+  --muted:rgba(240,236,228,.5);
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden;padding-bottom:64px}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--gold)}
+::selection{background:var(--gold);color:var(--black)}
+
+/* ── HEADER ── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:72px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;
+  background:linear-gradient(180deg,rgba(10,10,10,.97) 0%,rgba(10,10,10,.75) 100%);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+  transition:background .3s;
+}
+header.solid{background:rgba(10,10,10,.98)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-img{height:64px;width:auto;display:block}
+.logo-name{display:flex;flex-direction:column;line-height:1}
+.logo-name-main{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--gold);letter-spacing:2px;white-space:nowrap}
+.logo-name-main em{font-style:italic;font-weight:300}
+.logo-name-sub{font-size:8px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-top:3px}
+.footer-logo{height:80px;width:auto;display:block;opacity:.9}
+.langs{display:flex;gap:2px}
+.lang{
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:1.5px;
+  color:var(--muted);background:none;border:1px solid transparent;padding:5px 9px;
+  cursor:pointer;transition:all .22s;text-transform:uppercase;border-radius:1px
+}
+.lang:hover,.lang.on{color:var(--gold);border-color:var(--border);background:var(--gold-dim)}
+.lang::after{content:attr(data-label)}
+
+/* ── HERO ── */
+.hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('villa infinity.jpeg') center/cover no-repeat;
+}
+.hero-bg::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.25) 45%,rgba(10,10,10,.75) 100%)
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);
+  background-size:90px 90px
+}
+.hero-body{position:relative;z-index:2;text-align:center;padding:0 5vw;max-width:860px}
+.hero-eye{
+  font-size:10px;font-weight:500;letter-spacing:5px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:30px;opacity:0;animation:rUp 1.1s .35s ease forwards
+}
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8vw,96px);font-weight:300;
+  line-height:1.02;color:#fff;letter-spacing:-1px;margin-bottom:28px;
+  opacity:0;animation:rUp 1.1s .6s ease forwards
+}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+.hero-loc{
+  font-size:11px;font-weight:600;letter-spacing:7px;text-transform:uppercase;
+  color:rgba(240,236,228,.55);margin-bottom:48px;
+  opacity:0;animation:rUp 1.1s .82s ease forwards
+}
+.hero-rule{
+  width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:0 auto 40px;opacity:0;animation:rUp 1.1s .72s ease forwards
+}
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  opacity:0;animation:rUp 1.1s 1.2s ease forwards
+}
+.hero-scroll span{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.scroll-line{width:1px;height:48px;background:linear-gradient(180deg,var(--gold),transparent);animation:scrollPulse 2s infinite}
+
+/* ── SERVICES ── */
+.srv-head{
+  display:flex;align-items:center;gap:20px;
+  padding:26px 5vw;border-bottom:1px solid var(--border)
+}
+.srv-head-label{font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.srv-head-line{flex:1;height:1px;background:var(--border)}
+
+/* diagonal grid */
+.srv-grid{}
+.srv-row{display:flex;height:52vh;min-height:290px;overflow:hidden}
+.srv-card{position:relative;overflow:hidden;cursor:pointer;flex-shrink:0;transition:filter .4s}
+.srv-card:hover{filter:drop-shadow(0 0 22px var(--gold-glow));z-index:5}
+.srv-l{width:calc(50% + 30px);clip-path:polygon(0 0,100% 0,calc(100% - 60px) 100%,0 100%);z-index:2}
+.srv-r{width:calc(50% + 30px);margin-left:-60px;clip-path:polygon(60px 0,100% 0,100% 100%,0 100%)}
+.srv-photo{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .85s cubic-bezier(.25,.46,.45,.94)}
+.srv-card:hover .srv-photo{transform:scale(1.08)}
+.srv-fade{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(150deg,rgba(10,10,10,.08) 0%,rgba(10,10,10,.52) 60%,rgba(10,10,10,.88) 100%);
+  transition:background .4s
+}
+.srv-card:hover .srv-fade{background:linear-gradient(150deg,rgba(201,168,76,.05) 0%,rgba(10,10,10,.46) 60%,rgba(10,10,10,.88) 100%)}
+.srv-body{position:absolute;bottom:0;left:0;right:0;padding:28px 32px;z-index:2}
+.srv-l .srv-body{padding-right:82px}
+.srv-r .srv-body{padding-left:32px}
+.srv-num{display:block;font-size:9px;font-weight:600;letter-spacing:4px;color:var(--gold);margin-bottom:8px}
+.srv-name{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,40px);font-weight:400;color:#fff;text-transform:uppercase;letter-spacing:1px;line-height:1;margin-bottom:8px}
+.srv-sub{font-size:11px;font-weight:400;letter-spacing:1.5px;color:var(--muted);opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.srv-card:hover .srv-sub{opacity:1;transform:none}
+
+/* ── AI SECTION ── */
+.ai-wrap{
+  background:
+    linear-gradient(rgba(10,10,10,.93),rgba(10,10,10,.93)),
+    url('imagen IA.jpeg') center/cover no-repeat fixed;
+  border-top:1px solid var(--border);position:relative;overflow:hidden
+}
+.ai-wrap::before{content:'';position:absolute;top:-180px;right:-180px;width:560px;height:560px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%);pointer-events:none;z-index:0}
+.ai-wrap::after{content:'';position:absolute;bottom:-120px;left:-120px;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none;z-index:0}
+.ai-ticker-belt{padding:15px 0;overflow:hidden;white-space:nowrap;border-bottom:1px solid var(--border);position:relative;z-index:1}
+.ai-ticker{display:inline-block;animation:ticker 36s linear infinite;font-size:10px;font-weight:600;letter-spacing:5px;color:var(--gold)}
+.ai-ticker b{margin:0 28px;opacity:.3}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* stats bar */
+.ai-stats{display:flex;border-bottom:1px solid var(--border);position:relative;z-index:1}
+.ai-stat{flex:1;padding:28px 5vw;text-align:center;border-right:1px solid var(--border);transition:background .3s}
+.ai-stat:last-child{border-right:none}
+.ai-stat:hover{background:rgba(201,168,76,.04)}
+.ai-stat-n{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.5vw,48px);font-weight:300;color:var(--gold);line-height:1;display:block;margin-bottom:5px}
+.ai-stat-l{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+
+/* top area */
+.ai-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:32px;padding:60px 5vw 50px;position:relative;z-index:1}
+.ai-top-left{max-width:520px}
+.ai-top-intro{font-size:13.5px;line-height:1.85;color:var(--muted);margin-top:20px}
+.ai-eye{font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.ai-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;color:#fff;line-height:1.05}
+.ai-h2 em{font-style:italic;color:var(--gold)}
+.ai-rule{width:44px;height:1px;background:var(--gold);margin-top:18px;margin-bottom:0}
+
+/* live badge */
+.ai-live{display:inline-flex;align-items:center;gap:8px;font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);padding:7px 14px;border:1px solid var(--border);margin-top:28px;align-self:flex-start}
+.ai-live-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:livePulse 1.8s ease-in-out infinite}
+@keyframes livePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--gold-glow)}60%{opacity:.5;box-shadow:0 0 0 6px transparent}}
+
+/* process flow */
+.ai-flow{display:flex;padding:0 5vw 56px;gap:0;position:relative;z-index:1}
+.ai-flow::before{content:'';position:absolute;top:21px;left:calc(5vw + 22px);right:calc(5vw + 22px);height:1px;background:var(--border)}
+.ai-step{flex:1;text-align:center;padding:0 12px;position:relative}
+.ai-step-dot{width:44px;height:44px;border:1px solid var(--border);border-radius:50%;background:var(--dark);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative;z-index:1;transition:all .35s}
+.ai-step:hover .ai-step-dot{border-color:var(--gold);background:var(--gold-dim);box-shadow:0 0 22px var(--gold-glow)}
+.ai-step-dot svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ai-step-t{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:500;color:#fff;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.ai-step-d{font-size:10.5px;line-height:1.65;color:var(--muted)}
+.ai-step-n{font-size:8px;font-weight:700;letter-spacing:3px;color:var(--gold);opacity:.5;margin-bottom:14px}
+
+/* cards */
+.ai-cards{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);position:relative;z-index:1}
+.ai-card{padding:38px 36px 44px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;transition:box-shadow .4s,background-color .3s;background-color:rgba(10,10,10,.6);background-size:cover;background-position:center}
+.ai-card:nth-child(3n){border-right:none}
+.ai-card:nth-child(1),.ai-card:nth-child(2),.ai-card:nth-child(3){border-bottom:none}
+.ai-card:nth-child(1){background-image:linear-gradient(rgba(10,10,10,.78),rgba(10,10,10,.78)),url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800');background-position:center}
+.ai-card:nth-child(2){background-image:linear-gradient(rgba(10,10,10,.78),rgba(10,10,10,.78)),url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800');background-position:top center}
+.ai-card:nth-child(3){background-image:linear-gradient(rgba(10,10,10,.78),rgba(10,10,10,.78)),url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800');background-position:center}
+.ai-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .4s}
+.ai-card::after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 0 0px rgba(201,168,76,0);transition:box-shadow .4s;pointer-events:none}
+.ai-card:hover{background-color:rgba(201,168,76,.04)}
+.ai-card:hover::before{opacity:1}
+.ai-card:hover::after{box-shadow:inset 0 0 0 1px rgba(201,168,76,.55),0 0 32px rgba(201,168,76,.07)}
+.ai-card-n{font-size:9px;font-weight:600;letter-spacing:4px;color:var(--gold);margin-bottom:22px}
+.ai-icon{width:46px;height:46px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:border-color .3s,box-shadow .3s}
+.ai-card:hover .ai-icon{border-color:var(--gold);box-shadow:0 0 20px var(--gold-glow)}
+.ai-icon svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ai-t{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.ai-d{font-size:12.5px;line-height:1.8;color:var(--muted)}
+.ai-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+.ai-tag{font-size:8px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:4px 10px;border:1px solid var(--border);transition:all .25s}
+.ai-card:hover .ai-tag{border-color:rgba(201,168,76,.35);color:rgba(201,168,76,.75)}
+
+/* visual split */
+.ai-visual{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);min-height:460px;position:relative;z-index:1}
+.ai-visual-img{position:relative;overflow:hidden;min-height:380px}
+.ai-visual-img-bg{position:absolute;inset:0;background:url('imagen IA.jpeg') bottom center/cover no-repeat}
+.ai-visual-img-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.96) 0%,rgba(10,10,10,.55) 38%,rgba(10,10,10,.15) 65%,rgba(10,10,10,.5) 100%)}
+.ai-notifs{position:absolute;inset:0;padding:8% 6%}
+.ai-notif{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(10,10,10,.88);border:1px solid var(--border);
+  border-radius:10px;padding:10px 16px;backdrop-filter:blur(12px);
+  position:absolute;max-width:230px;
+}
+.ai-notif:nth-child(1){top:11%;left:6%;animation:notifIn .7s .3s cubic-bezier(.22,1,.36,1) both,notifFloat 3.2s 1.0s ease-in-out infinite}
+.ai-notif:nth-child(2){top:11%;right:5%;animation:notifIn .7s .7s cubic-bezier(.22,1,.36,1) both,notifFloat 3.2s 1.4s ease-in-out infinite}
+.ai-notif:nth-child(3){top:34%;left:6%;animation:notifIn .7s 1.1s cubic-bezier(.22,1,.36,1) both,notifFloat 3.2s 1.8s ease-in-out infinite}
+.ai-notif:nth-child(4){top:34%;right:5%;animation:notifIn .7s 1.5s cubic-bezier(.22,1,.36,1) both,notifFloat 3.2s 2.2s ease-in-out infinite}
+@keyframes notifFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes notifIn{from{opacity:0;transform:translateY(14px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
+.ai-notif-icon{width:28px;height:28px;border-radius:6px;background:var(--gold-dim);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ai-notif-icon svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2}
+.ai-notif-body{}
+.ai-notif-label{font-size:10px;font-weight:700;color:#fff;letter-spacing:.5px;display:block;line-height:1.3}
+.ai-notif-sub{font-size:9px;color:var(--muted);letter-spacing:.3px;display:block;margin-top:1px}
+.ai-notif-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;flex-shrink:0;animation:livePulse 1.8s ease-in-out infinite}
+.ai-visual-text{padding:52px 48px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border)}
+.ai-visual-h{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,2.8vw,42px);font-weight:300;color:#fff;line-height:1.1;margin-bottom:18px}
+.ai-visual-h em{font-style:italic;color:var(--gold)}
+.ai-visual-p{font-size:13px;line-height:1.85;color:var(--muted);margin-bottom:28px}
+.ai-checks{display:flex;flex-direction:column;gap:13px}
+.ai-check{display:flex;align-items:flex-start;gap:12px;font-size:12.5px;line-height:1.55;color:var(--muted)}
+.ai-check-ico{width:18px;height:18px;border:1px solid rgba(201,168,76,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.ai-check-ico svg{width:9px;height:9px;stroke:var(--gold);stroke-width:2.5}
+@media(max-width:768px){
+  .ai-visual{grid-template-columns:1fr}
+  .ai-visual-img{min-height:320px}
+  .ai-visual-text{padding:36px 24px;border-left:none;border-top:1px solid var(--border)}
+  .ai-notif:nth-child(2),.ai-notif:nth-child(4){display:none}
+  .ai-notif:nth-child(1){left:4%}.ai-notif:nth-child(3){left:4%}
+}
+
+/* mood banner */
+.ai-mood{
+  position:relative;height:380px;overflow:hidden;
+  background:url('Tenerife.jpeg') center/cover no-repeat;
+  background-attachment:fixed;
+}
+.ai-mood::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.3) 50%,rgba(10,10,10,.65) 100%);
+}
+.ai-mood::after{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(201,168,76,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.025) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+.ai-mood-body{
+  position:relative;z-index:2;
+  height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:0 5vw;gap:18px;
+}
+.ai-mood-loc{font-size:10px;font-weight:600;letter-spacing:7px;text-transform:uppercase;color:rgba(201,168,76,.7)}
+.ai-mood-rule{width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.ai-mood-q{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.5vw,46px);
+  font-weight:300;color:#fff;line-height:1.12;max-width:780px;letter-spacing:-.3px;
+}
+.ai-mood-q em{font-style:italic;color:var(--gold)}
+.ai-mood-author{font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+
+/* CTA bar */
+.ai-cta-bar{padding:48px 5vw;border-top:1px solid var(--border);background:linear-gradient(90deg,rgba(201,168,76,.06) 0%,transparent 55%);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:28px;position:relative;z-index:1}
+.ai-cta-text h3{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.5vw,34px);font-weight:300;color:#fff;line-height:1.1;margin-bottom:10px}
+.ai-cta-text h3 em{font-style:italic;color:var(--gold)}
+.ai-cta-text p{font-size:13px;color:var(--muted);line-height:1.75;max-width:500px}
+.ai-cta-btn{display:inline-flex;align-items:center;gap:12px;padding:0 34px;height:50px;background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-decoration:none;position:relative;overflow:hidden;transition:box-shadow .3s,transform .2s;white-space:nowrap}
+.ai-cta-btn::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.18);transform:translateX(-100%);transition:transform .4s}
+.ai-cta-btn:hover::before{transform:translateX(0)}
+.ai-cta-btn:hover{box-shadow:0 0 36px var(--gold-glow);transform:translateY(-1px)}
+.ai-cta-btn svg{width:16px;height:16px;fill:var(--black);flex-shrink:0}
+
+/* ── ABOUT ── */
+.about{background:var(--black);border-top:1px solid var(--border);position:relative;overflow:hidden}
+.about::before{content:'';position:absolute;top:-160px;left:-160px;width:480px;height:480px;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none}
+.about-inner{display:grid;grid-template-columns:1fr 1.15fr;min-height:520px;position:relative;z-index:1}
+.about-img-col{position:relative;overflow:hidden;border-right:1px solid var(--border)}
+.about-img{position:absolute;inset:0;background:center/cover no-repeat}
+.about-img::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 55%,var(--black) 100%),linear-gradient(180deg,rgba(10,10,10,.3) 0%,transparent 40%,rgba(10,10,10,.4) 100%)}
+.about-badge{
+  position:absolute;bottom:36px;left:36px;
+  padding:14px 22px;background:rgba(10,10,10,.88);
+  border:1px solid var(--border);backdrop-filter:blur(12px)
+}
+.about-badge-label{font-size:8px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px}
+.about-badge-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff}
+.about-text{padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
+.about-eye{font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.about-h{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.2vw,48px);font-weight:300;color:#fff;line-height:1.08;margin-bottom:8px}
+.about-h em{font-style:italic;color:var(--gold)}
+.about-rule{width:44px;height:1px;background:var(--gold);margin-bottom:28px}
+.about-p{font-size:13.5px;line-height:1.9;color:var(--muted);margin-bottom:18px}
+.about-vals{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:32px;border:1px solid var(--border)}
+.about-val{background:var(--black);padding:18px 20px;transition:background .3s}
+.about-val:hover{background:rgba(201,168,76,.04)}
+.about-val-t{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;color:#fff;margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.about-val-d{font-size:11px;line-height:1.6;color:var(--muted)}
+@media(max-width:768px){
+  .about-inner{grid-template-columns:1fr}
+  .about-img-col{min-height:300px;border-right:none;border-bottom:1px solid var(--border)}
+  .about-text{padding:40px 24px}
+  .about-vals{grid-template-columns:1fr}
+}
+
+/* ── FOOTER ── */
+.footer{
+  padding:24px 5vw;background:var(--black);border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px
+}
+.footer-logo{height:64px;width:auto;display:block}
+.foot-l{display:flex;gap:22px}
+.foot-l a{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .22s}
+.foot-l a:hover{color:var(--gold)}
+
+/* ── BOTTOM BAR ── */
+.bar{
+  position:fixed;bottom:0;left:0;right:0;height:64px;z-index:200;
+  background:rgba(10,10,10,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-top:1px solid var(--border);display:flex;align-items:center;
+  justify-content:space-between;padding:0 5vw
+}
+.bar-left{display:flex;align-items:center;gap:20px}
+.bar-brand{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:500;color:var(--gold);letter-spacing:2px;text-transform:uppercase}
+.bar-sep{width:1px;height:20px;background:var(--border)}
+.bar-loc{font-size:9px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.bar-cta{
+  display:flex;align-items:center;gap:12px;padding:0 28px;height:40px;
+  background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  text-decoration:none;position:relative;overflow:hidden;transition:box-shadow .3s,transform .2s
+}
+.bar-cta::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.18);transform:translateX(-100%);transition:transform .4s}
+.bar-cta:hover::before{transform:translateX(0)}
+.bar-cta:hover{box-shadow:0 0 32px var(--gold-glow);transform:translateY(-1px)}
+.wa-ico{width:18px;height:18px;flex-shrink:0}
+
+/* ── VILLAS GRID ── */
+.vm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.vm-card{background:var(--black);overflow:hidden;cursor:default}
+.vm-img{height:190px;background-size:cover;background-position:center;transition:transform .7s cubic-bezier(.25,.46,.45,.94)}
+.vm-card:hover .vm-img{transform:scale(1.06)}
+.vm-info{padding:14px 18px 18px;border-top:1px solid var(--border)}
+.vm-loc{display:block;font-size:8px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.vm-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#fff;line-height:1.1;margin-bottom:10px}
+.vm-stats{display:flex;gap:0;border-top:1px solid var(--border);padding-top:10px;margin-top:2px}
+.vm-stats span{flex:1;font-size:9px;font-weight:500;letter-spacing:1px;color:var(--muted);text-align:center;padding:3px 0;border-right:1px solid var(--border)}
+.vm-stats span:last-child{border-right:none}
+@media(max-width:1024px){.vm-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){.vm-grid{grid-template-columns:repeat(2,1fr)}.vm-img{height:160px}}
+@media(max-width:480px){.vm-grid{grid-template-columns:1fr}.vm-img{height:200px}}
+
+/* ── VER FLOTA BUTTON ── */
+.srv-fleet-btn{
+  display:inline-flex;align-items:center;gap:8px;margin-top:14px;
+  padding:9px 20px;background:transparent;border:1px solid var(--gold);
+  color:var(--gold);font-family:'Montserrat',sans-serif;font-size:9px;
+  font-weight:600;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;
+  transition:all .25s;position:relative;z-index:3
+}
+.srv-fleet-btn svg{width:14px;height:14px;stroke:var(--gold);flex-shrink:0}
+.srv-fleet-btn:hover{background:var(--gold);color:var(--black)}
+.srv-fleet-btn:hover svg{stroke:var(--black)}
+
+/* ── CARS MODAL ── */
+.cm-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(5,5,5,.92);backdrop-filter:blur(10px);
+  display:flex;align-items:flex-start;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .35s ease;
+  padding:20px 0 80px
+}
+.cm-overlay.open{opacity:1;pointer-events:all}
+.cm-panel{
+  background:var(--black);width:100%;max-width:1140px;max-height:90vh;
+  overflow-y:auto;border:1px solid var(--border);
+  transform:translateY(32px);transition:transform .4s cubic-bezier(.25,.46,.45,.94);
+  margin:0 16px
+}
+.cm-overlay.open .cm-panel{transform:translateY(0)}
+.cm-panel::-webkit-scrollbar{width:3px}
+.cm-panel::-webkit-scrollbar-thumb{background:var(--gold)}
+
+/* header */
+.cm-hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:32px 40px;border-bottom:1px solid var(--border);
+  position:sticky;top:0;background:var(--black);z-index:10
+}
+.cm-eye{font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+.cm-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,40px);font-weight:300;color:#fff;line-height:1}
+.cm-title em{font-style:italic;color:var(--gold)}
+.cm-close{
+  width:42px;height:42px;border:1px solid var(--border);background:none;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  flex-shrink:0;transition:all .25s
+}
+.cm-close svg{width:18px;height:18px;stroke:var(--muted)}
+.cm-close:hover{border-color:var(--gold);background:var(--gold-dim)}
+.cm-close:hover svg{stroke:var(--gold)}
+
+/* hero strip */
+.cm-hero-strip{
+  padding:28px 40px;border-bottom:1px solid var(--border);
+  background:linear-gradient(90deg,rgba(201,168,76,.06) 0%,transparent 70%)
+}
+.cm-tagline{font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.cm-sub{font-size:13px;line-height:1.7;color:var(--muted);max-width:620px}
+
+/* grid */
+.cm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+
+.cm-car{background:var(--black);position:relative;overflow:hidden;cursor:default}
+.cm-car-img{
+  height:220px;background-size:cover;background-position:center;
+  transition:transform .7s cubic-bezier(.25,.46,.45,.94)
+}
+.cm-car:hover .cm-car-img{transform:scale(1.06)}
+.cm-car-info{padding:18px 22px 22px;border-top:1px solid var(--border)}
+.cm-car-brand{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:4px}
+.cm-car-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#fff;margin-bottom:4px}
+.cm-car-desc{font-size:11px;color:var(--muted);letter-spacing:.5px}
+
+/* fleet note */
+.cm-fleet-note{
+  display:flex;align-items:center;gap:14px;
+  padding:18px 40px;background:rgba(201,168,76,.06);border-top:1px solid var(--border)
+}
+.cm-fleet-note svg{width:18px;height:18px;stroke:var(--gold);flex-shrink:0}
+.cm-fleet-note p{font-size:12.5px;color:var(--muted);line-height:1.6}
+.cm-fleet-note em{font-style:italic;color:var(--gold)}
+
+/* proveedores */
+.cm-providers{
+  display:flex;gap:24px;align-items:flex-start;
+  padding:32px 40px;border-top:1px solid var(--border);
+  background:var(--dark)
+}
+.cm-prov-icon{
+  width:52px;height:52px;border:1px solid var(--border);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px
+}
+.cm-prov-icon svg{width:22px;height:22px;stroke:var(--gold)}
+.cm-prov-title{
+  font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;
+  color:#fff;margin-bottom:10px;letter-spacing:.5px
+}
+.cm-prov-text{font-size:13px;line-height:1.8;color:var(--muted)}
+.cm-prov-text strong{color:var(--text);font-weight:500}
+
+/* footer CTA */
+.cm-footer{
+  padding:36px 40px;border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;background:var(--dark)
+}
+.cm-footer-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.cm-footer-text{font-size:13px;line-height:1.7;color:var(--muted);max-width:480px}
+.cm-wa-btn{
+  display:inline-flex;align-items:center;gap:10px;padding:13px 28px;
+  background:#25D366;color:#fff;font-family:'Montserrat',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;transition:all .3s;white-space:nowrap
+}
+.cm-wa-btn:hover{background:#1ebe5d;box-shadow:0 8px 32px rgba(37,211,102,.35)}
+
+/* legal modals */
+.legal-panel{max-width:760px}
+.legal-body{padding:36px 40px 56px}
+.legal-updated{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);opacity:.6;margin-bottom:30px}
+.legal-section{margin-bottom:26px}
+.legal-section:last-child{margin-bottom:0}
+.legal-h3{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:500;color:var(--gold);margin-bottom:8px;letter-spacing:.3px}
+.legal-p{font-size:13px;line-height:1.85;color:var(--muted);margin-bottom:8px}
+.legal-p:last-child{margin-bottom:0}
+.legal-p strong{color:var(--text);font-weight:500}
+@media(max-width:768px){.legal-body{padding:24px 20px 40px}}
+
+/* juguetes card — crops price caption rows via scale + gradient overlay */
+.cm-car-img--toys{
+  height:220px;
+  background-size:108% auto;
+  background-position:top center;
+  position:relative;
+}
+.cm-car-img--toys::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(
+    transparent 42%,
+    rgba(10,10,10,.93) 46%,
+    rgba(10,10,10,.93) 68%,
+    transparent 72%
+  );
+}
+
+/* modal responsive */
+@media(max-width:768px){
+  .cm-grid{grid-template-columns:repeat(2,1fr)}
+  .cm-hdr,.cm-hero-strip,.cm-footer,.cm-fleet-note,.cm-providers{padding:22px 20px}
+  .cm-providers{flex-direction:column;gap:16px}
+  .cm-car-img{height:160px}
+}
+@media(max-width:480px){
+  .cm-grid{grid-template-columns:1fr}
+  .cm-panel{margin:0}
+  .cm-car-img{height:200px}
+}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+.rv2>*{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv2.in>*:nth-child(1){opacity:1;transform:none;transition-delay:.0s}
+.rv2.in>*:nth-child(2){opacity:1;transform:none;transition-delay:.12s}
+.rv2.in>*:nth-child(3){opacity:1;transform:none;transition-delay:.24s}
+
+/* ── KEYFRAMES ── */
+@keyframes rUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:.35}50%{opacity:1}}
+
+/* ── MODAL CARD REVEAL ── */
+@keyframes cardReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.cm-overlay.open .vm-card,.cm-overlay.open .cm-car{animation:cardReveal .5s ease both}
+.cm-overlay.open .vm-card:nth-child(2),.cm-overlay.open .cm-car:nth-child(2){animation-delay:.06s}
+.cm-overlay.open .vm-card:nth-child(3),.cm-overlay.open .cm-car:nth-child(3){animation-delay:.12s}
+.cm-overlay.open .vm-card:nth-child(4),.cm-overlay.open .cm-car:nth-child(4){animation-delay:.18s}
+.cm-overlay.open .vm-card:nth-child(5),.cm-overlay.open .cm-car:nth-child(5){animation-delay:.24s}
+.cm-overlay.open .vm-card:nth-child(6),.cm-overlay.open .cm-car:nth-child(6){animation-delay:.30s}
+.cm-overlay.open .vm-card:nth-child(7),.cm-overlay.open .cm-car:nth-child(7){animation-delay:.36s}
+.cm-overlay.open .vm-card:nth-child(8),.cm-overlay.open .cm-car:nth-child(8){animation-delay:.42s}
+.cm-overlay.open .vm-card:nth-child(9){animation-delay:.48s}
+.cm-overlay.open .vm-card:nth-child(10){animation-delay:.54s}
+.cm-overlay.open .vm-card:nth-child(11){animation-delay:.60s}
+.cm-overlay.open .vm-card:nth-child(12){animation-delay:.66s}
+.cm-overlay.open .vm-card:nth-child(13){animation-delay:.72s}
+.cm-overlay.open .vm-card:nth-child(14){animation-delay:.78s}
+.cm-overlay.open .vm-card:nth-child(15){animation-delay:.84s}
+.cm-overlay.open .vm-card:nth-child(16){animation-delay:.90s}
+.cm-overlay.open .vm-card:nth-child(17){animation-delay:.96s}
+.cm-overlay.open .vm-card:nth-child(18){animation-delay:1.02s}
+.cm-overlay.open .vm-card:nth-child(19){animation-delay:1.08s}
+.cm-overlay.open .vm-card:nth-child(20){animation-delay:1.14s}
+.cm-overlay.open .vm-card:nth-child(21){animation-delay:1.20s}
+.cm-overlay.open .vm-card:nth-child(22){animation-delay:1.26s}
+.cm-overlay.open .vm-card:nth-child(23){animation-delay:1.32s}
+.cm-overlay.open .vm-card:nth-child(24){animation-delay:1.38s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .ai-cards{grid-template-columns:1fr 1fr}
+  .ai-card:nth-child(3n){border-right:1px solid var(--border)}
+  .ai-card:nth-child(2n){border-right:none}
+  .ai-card:last-child{border-bottom:none}
+  .ai-flow{flex-wrap:wrap;gap:24px}
+  .ai-flow::before{display:none}
+  .ai-step{flex:1 1 40%}
+}
+@media(max-width:768px){
+  .srv-row{flex-direction:column;height:auto}
+  .srv-l,.srv-r{width:100%;margin-left:0;height:48vw;min-height:220px;clip-path:none}
+  .srv-l .srv-body{padding-right:32px}
+  .ai-cards{grid-template-columns:1fr}
+  .ai-card{border-right:none;border-bottom:1px solid var(--border)}
+  .ai-card:last-child{border-bottom:none}
+  .ai-card:nth-child(3n){border-right:none}
+  .ai-top{flex-direction:column}
+  .ai-flow{padding-bottom:32px}
+  .ai-cta-bar{flex-direction:column;align-items:flex-start}
+  .bar-left{display:none}
+  .bar{justify-content:center}
+  .bar-cta{height:48px;padding:0 36px;font-size:11px}
+}
+@media(max-width:480px){
+  .lang{padding:5px 6px;font-size:9px}
+  .hero-h1{letter-spacing:-2px}
+  .ai-card{padding:30px 22px}
+}
+
+/* ── NAV ── */
+.nav{display:flex;align-items:center;gap:0;margin:0 auto;padding:0 32px}
+.nav-link{font-family:'Montserrat',sans-serif;font-size:9.5px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 16px;position:relative;transition:color .25s}
+.nav-link::after{content:'';position:absolute;bottom:-1px;left:50%;right:50%;height:1px;background:var(--gold);transition:left .28s,right .28s}
+.nav-link:hover{color:var(--gold)}
+.nav-link:hover::after{left:16px;right:16px}
+@media(max-width:960px){.nav{display:none}}
+
+/* ── DESTINATIONS ── */
+.dest{display:grid;grid-template-columns:1fr 1px 1fr;border-top:1px solid var(--border);overflow:hidden}
+.dest-divider{background:var(--border)}
+.dest-panel{position:relative;height:65vh;min-height:400px;overflow:hidden;cursor:default}
+.dest-panel-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.1s cubic-bezier(.25,.46,.45,.94)}
+.dest-panel:hover .dest-panel-bg{transform:scale(1.05)}
+.dest-panel-ov{position:absolute;inset:0;background:linear-gradient(170deg,rgba(10,10,10,.18) 0%,rgba(10,10,10,.62) 70%,rgba(10,10,10,.88) 100%);transition:background .4s}
+.dest-panel:hover .dest-panel-ov{background:linear-gradient(170deg,rgba(10,10,10,.12) 0%,rgba(10,10,10,.5) 70%,rgba(10,10,10,.82) 100%)}
+.dest-panel-body{position:absolute;bottom:0;left:0;right:0;padding:48px 52px;z-index:2}
+.dest-tag{font-size:9px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px}
+.dest-name{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,6vw,86px);font-weight:300;color:#fff;line-height:.95;letter-spacing:-2px;margin-bottom:14px}
+.dest-desc{font-size:12px;letter-spacing:.8px;color:rgba(240,236,228,.6);line-height:1.75;max-width:360px}
+@media(max-width:768px){
+  .dest{grid-template-columns:1fr}
+  .dest-divider{display:none}
+  .dest-panel{height:56vw;min-height:260px}
+  .dest-panel-body{padding:28px 28px}
+  .dest-name{font-size:clamp(42px,10vw,60px)}
+}
+
+/* ── CTA / CONTACT ── */
+.cta-sect{background:var(--black);border-top:1px solid var(--border);position:relative;overflow:hidden}
+.cta-sect::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.022) 1px,transparent 1px);background-size:72px 72px;pointer-events:none}
+.cta-sect::after{content:'';position:absolute;top:-140px;right:-140px;width:520px;height:520px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none}
+.cta-inner{display:grid;grid-template-columns:1fr 1fr;min-height:520px;position:relative;z-index:1}
+.cta-left{padding:80px 64px;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
+.cta-eye{font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.cta-h{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,60px);font-weight:300;color:#fff;line-height:1.02;margin-bottom:14px}
+.cta-h em{font-style:italic;color:var(--gold)}
+.cta-rule{width:44px;height:1px;background:var(--gold);margin-bottom:32px}
+.cta-sub{font-size:13.5px;line-height:1.85;color:var(--muted);max-width:380px;margin-bottom:40px}
+.cta-wa{display:inline-flex;align-items:center;gap:14px;padding:0 36px;height:54px;background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-decoration:none;position:relative;overflow:hidden;transition:box-shadow .3s,transform .2s;align-self:flex-start;white-space:nowrap}
+.cta-wa::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.18);transform:translateX(-100%);transition:transform .4s}
+.cta-wa:hover::before{transform:translateX(0)}
+.cta-wa:hover{box-shadow:0 0 44px var(--gold-glow);transform:translateY(-2px)}
+.cta-wa svg{width:20px;height:20px;fill:var(--black);flex-shrink:0}
+.cta-note{margin-top:16px;font-size:10.5px;color:var(--muted);letter-spacing:.4px}
+.cta-note em{color:var(--gold);font-style:normal}
+.cta-right{padding:64px 56px;display:flex;flex-direction:column;justify-content:center}
+.cta-form-hd{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#fff;margin-bottom:8px;letter-spacing:.5px}
+.cta-form-sub{font-size:11px;color:var(--muted);letter-spacing:.5px;margin-bottom:26px}
+.cta-form-toggle{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;font-size:9.5px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);background:none;border:1px solid var(--border);padding:10px 22px;cursor:pointer;transition:all .25s;align-self:flex-start}
+.cta-form-toggle svg{width:14px;height:14px;stroke:var(--muted);transition:stroke .25s,transform .35s}
+.cta-form-toggle:hover,.cta-form-toggle.open{color:var(--gold);border-color:var(--gold)}
+.cta-form-toggle:hover svg,.cta-form-toggle.open svg{stroke:var(--gold)}
+.cta-form-toggle.open svg{transform:rotate(45deg)}
+.cta-form-wrap{max-height:0;overflow:hidden;transition:max-height .65s cubic-bezier(.25,.46,.45,.94)}
+.cta-form-wrap.open{max-height:1600px}
+.cta-form{display:flex;flex-direction:column;gap:15px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.cf-field{display:flex;flex-direction:column;gap:7px}
+.cf-label{font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+.cf-input,.cf-select,.cf-textarea{background:rgba(201,168,76,.04);border:1px solid var(--border);padding:12px 16px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;color:var(--text);outline:none;transition:border-color .25s,background .25s;width:100%}
+.cf-input::placeholder,.cf-textarea::placeholder{color:var(--muted)}
+.cf-input:focus,.cf-select:focus,.cf-textarea:focus{border-color:rgba(201,168,76,.55);background:rgba(201,168,76,.06)}
+.cf-select{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;background-color:rgba(201,168,76,.04)}
+.cf-select option{background:var(--black);color:var(--text)}
+.cf-textarea{resize:vertical;min-height:96px;line-height:1.7}
+.cf-checks-label{font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.cf-checks{display:flex;flex-wrap:wrap;gap:10px 16px}
+.cf-check{display:flex;align-items:center;gap:8px;cursor:pointer}
+.cf-check input[type="checkbox"]{appearance:none;width:14px;height:14px;border:1px solid var(--border);background:transparent;cursor:pointer;position:relative;flex-shrink:0;transition:border-color .2s,background .2s}
+.cf-check input[type="checkbox"]:checked{background:var(--gold);border-color:var(--gold)}
+.cf-check input[type="checkbox"]:checked::after{content:'';position:absolute;top:1px;left:1px;right:1px;bottom:1px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 8'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%230a0a0a' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.cf-check-label{font-size:11.5px;color:var(--muted);transition:color .2s;user-select:none}
+.cf-check:hover .cf-check-label{color:var(--text)}
+.cf-submit{margin-top:6px;display:flex;align-items:center;justify-content:center;gap:10px;height:50px;background:var(--gold);color:var(--black);border:none;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;cursor:pointer;position:relative;overflow:hidden;transition:box-shadow .3s,transform .2s;width:100%}
+.cf-submit::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.18);transform:translateX(-100%);transition:transform .4s}
+.cf-submit:hover::before{transform:translateX(0)}
+.cf-submit:hover{box-shadow:0 0 36px var(--gold-glow);transform:translateY(-1px)}
+.cf-sent{display:none;padding:20px;border:1px solid rgba(201,168,76,.3);background:rgba(201,168,76,.06);font-size:12.5px;color:var(--gold);text-align:center;letter-spacing:.5px;margin-top:8px}
+@media(max-width:900px){
+  .cta-inner{grid-template-columns:1fr}
+  .cta-left{padding:60px 40px;border-right:none;border-bottom:1px solid var(--border)}
+  .cta-right{padding:48px 40px}
+  .cf-row{grid-template-columns:1fr}
+}
+@media(max-width:600px){.cta-left{padding:44px 24px}.cta-right{padding:36px 24px}}
+
+/* ── FOOTER REDESIGN ── */
+.footer-new{background:var(--black);border-top:1px solid var(--border)}
+.footer-main{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:0;padding:60px 5vw;border-bottom:1px solid var(--border)}
+.footer-brand-sub{font-size:11px;font-weight:300;letter-spacing:.5px;color:var(--muted);margin-top:18px;max-width:290px;line-height:1.8}
+.footer-col{padding-left:40px;border-left:1px solid var(--border)}
+.footer-col-title{font-size:9px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.footer-col-links{display:flex;flex-direction:column;gap:12px}
+.footer-col-links a{font-size:12px;font-weight:300;color:var(--muted);text-decoration:none;letter-spacing:.5px;transition:color .22s}
+.footer-col-links a:hover{color:var(--gold)}
+.footer-col-links span{font-size:12px;font-weight:300;color:rgba(240,236,228,.35);letter-spacing:.5px}
+.footer-bottom{padding:22px 5vw;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:10px;color:rgba(240,236,228,.28);letter-spacing:.5px}
+.footer-tagline{font-size:9px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:rgba(201,168,76,.45)}
+@media(max-width:900px){
+  .footer-main{grid-template-columns:1fr 1fr;gap:40px 0}
+  .footer-brand{grid-column:1/-1;margin-bottom:8px}
+  .footer-col{padding-left:0;border-left:none;border-top:1px solid var(--border);padding-top:32px}
+}
+@media(max-width:900px) and (min-width:481px){
+  .footer-col:nth-child(even){padding-left:24px;border-left:1px solid var(--border);border-top:none}
+}
+@media(max-width:480px){
+  .footer-main{grid-template-columns:1fr;padding:40px 24px;gap:32px}
+  .footer-bottom{flex-direction:column;text-align:center;gap:8px;padding:18px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <a href="#" class="logo">
+    <img src="Logo original.jpeg" alt="A.I. SoulVIP Solutions" class="logo-img">
+    <div class="logo-name">
+      <span class="logo-name-main">Soul<em>VIP</em> Solutions</span>
+      <span class="logo-name-sub">Luxury Concierge · A.I.</span>
+    </div>
+  </a>
+  <nav class="nav">
+    <a href="#services" class="nav-link">Concierge</a>
+    <a href="#ai" class="nav-link">AI Services</a>
+    <a href="#destinations" class="nav-link">Destinations</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+  <div class="langs">
+    <button class="lang on" data-lang="en" data-label="EN" onclick="setLang('en')"></button>
+    <button class="lang" data-lang="es" data-label="ES" onclick="setLang('es')"></button>
+    <button class="lang" data-lang="ru" data-label="RU" onclick="setLang('ru')"></button>
+    <button class="lang" data-lang="de" data-label="DE" onclick="setLang('de')"></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-body">
+    <p class="hero-eye" data-i18n="hero.eye">Elite Concierge · AI-Powered Solutions</p>
+    <h1 class="hero-h1" data-i18n="hero.h1">Where <em>Luxury</em><br>Meets Intelligence</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-loc" data-i18n="hero.loc">IBIZA · TENERIFE · PRIVATE WORLD</p>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="srv-head">
+    <span class="srv-head-label" data-i18n="srv.label">— Concierge Services</span>
+    <div class="srv-head-line"></div>
+  </div>
+  <div class="srv-grid">
+    <!-- Row 1 -->
+    <div class="srv-row" data-aos="fade-up" data-aos-duration="850">
+      <div class="srv-card srv-l" onclick="openVillas()" style="cursor:pointer">
+        <div class="srv-photo" style="background-image:url('villa.jpg')"></div>
+        <div class="srv-fade"></div>
+        <div class="srv-body">
+          <span class="srv-num">01</span>
+          <h3 class="srv-name" data-i18n="srv.villas">Villas</h3>
+          <p class="srv-sub" data-i18n="srv.villas.s">Private estates worldwide</p>
+          <button class="srv-fleet-btn" onclick="openVillas(event)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+            <span data-i18n="villas.btn">Ver Villas</span>
+          </button>
+        </div>
+      </div>
+      <div class="srv-card srv-r" onclick="openYachts()" style="cursor:pointer">
+        <div class="srv-photo" style="background-image:url('https://magycluxurysilvana.com/wp-content/uploads/2025/07/yatch5.png')"></div>
+        <div class="srv-fade"></div>
+        <div class="srv-body">
+          <span class="srv-num">02</span>
+          <h3 class="srv-name" data-i18n="srv.yachts">Yachts</h3>
+          <p class="srv-sub" data-i18n="srv.yachts.s">Charter the Mediterranean</p>
+          <button class="srv-fleet-btn" onclick="openYachts(event)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+            <span data-i18n="yachts.btn">Ver Yates</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Row 2 -->
+    <div class="srv-row" data-aos="fade-up" data-aos-duration="850" data-aos-delay="80">
+      <div class="srv-card srv-l" onclick="openCars()" style="cursor:pointer">
+        <div class="srv-photo" style="background-image:url('lamb1.jpg')"></div>
+        <div class="srv-fade"></div>
+        <div class="srv-body">
+          <span class="srv-num">03</span>
+          <h3 class="srv-name" data-i18n="srv.cars">Luxury Cars</h3>
+          <p class="srv-sub" data-i18n="srv.cars.s">Icons of automotive elegance</p>
+          <button class="srv-fleet-btn" onclick="openCars(event)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+            <span data-i18n="cars.btn">Ver Flota</span>
+          </button>
+        </div>
+      </div>
+      <div class="srv-card srv-r" onclick="openVIP()" style="cursor:pointer">
+        <div class="srv-photo" style="background-image:url('avion2.jpeg');background-size:contain;background-position:center center;background-color:#0a0a0a"></div>
+        <div class="srv-fade"></div>
+        <div class="srv-body">
+          <span class="srv-num">04</span>
+          <h3 class="srv-name" data-i18n="srv.vip">VIP Experiences</h3>
+          <p class="srv-sub" data-i18n="srv.vip.s">Moments beyond imagination</p>
+          <button class="srv-fleet-btn" onclick="openVIP(event)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+            <span data-i18n="vip.btn">Ver Experiencias</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SERVICES -->
+<section class="ai-wrap" id="ai">
+
+  <!-- Ticker -->
+  <div class="ai-ticker-belt">
+    <div class="ai-ticker">
+      CONCIERGE IA<b>·</b>AUTOMATIZACIÓN<b>·</b>LLAMADAS IA<b>·</b>PUBLICIDAD INTELIGENTE<b>·</b>GESTIÓN RESERVAS<b>·</b>AGENTE 24/7<b>·</b>CRM AUTÓNOMO<b>·</b>PRESENCIA DIGITAL<b>·</b>
+      CONCIERGE IA<b>·</b>AUTOMATIZACIÓN<b>·</b>LLAMADAS IA<b>·</b>PUBLICIDAD INTELIGENTE<b>·</b>GESTIÓN RESERVAS<b>·</b>AGENTE 24/7<b>·</b>CRM AUTÓNOMO<b>·</b>PRESENCIA DIGITAL<b>·</b>
+    </div>
+  </div>
+
+  <!-- Heading block -->
+  <div style="padding:64px 6vw 48px;border-bottom:1px solid var(--border);text-align:center" data-aos="fade-up" data-aos-duration="800">
+    <p class="ai-eye" style="margin-bottom:14px" data-i18n="ai.heading.eye">Inteligencia Artificial · SoulVIP</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,58px);font-weight:300;color:#fff;line-height:1.1;margin-bottom:14px" data-i18n="ai.heading.h2">Mientras tú disfrutas, <em style="color:var(--gold);font-style:italic">la IA trabaja</em></h2>
+    <p style="font-size:0.85rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:28px" data-i18n="ai.heading.sub">Tu negocio de lujo nunca duerme</p>
+    <p style="font-size:1rem;line-height:1.8;color:var(--muted);max-width:680px;margin:0 auto" data-i18n="ai.intro">Un asistente inteligente atiende a tus clientes al instante por WhatsApp, responde sus preguntas, les inspira confianza y te avisa cuando necesitan tu atención personal. Tú te centras en lo importante — nosotros nos ocupamos del resto.</p>
+  </div>
+
+  <!-- Top -->
+  <div class="ai-top" data-aos="fade-up" data-aos-duration="800">
+    <div class="ai-top-left">
+      <p class="ai-eye" data-i18n="ai.eye">Inteligencia Artificial</p>
+      <h2 class="ai-h2" data-i18n="ai.h2">Mientras tú disfrutas,<br><em>la IA trabaja</em></h2>
+      <div class="ai-rule"></div>
+      <p class="ai-top-intro" data-i18n="ai.intro">Un asistente inteligente atiende a tus clientes al instante por WhatsApp, responde sus preguntas, les inspira confianza y te avisa cuando necesitan tu atención personal. Tú te centras en lo importante — nosotros nos ocupamos del resto.</p>
+    </div>
+    <div class="ai-live">
+      <span class="ai-live-dot"></span>
+      <span data-i18n="ai.live">Sistema activo · En tiempo real</span>
+    </div>
+  </div>
+
+  <!-- Process flow -->
+  <div class="ai-flow">
+    <div class="ai-step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0">
+      <p class="ai-step-n">01</p>
+      <div class="ai-step-dot">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <p class="ai-step-t" data-i18n="ai.step1.t">Cliente contacta</p>
+      <p class="ai-step-d" data-i18n="ai.step1.d">WhatsApp, llamada, web o email — cualquier canal</p>
+    </div>
+    <div class="ai-step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="120">
+      <p class="ai-step-n">02</p>
+      <div class="ai-step-dot">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+      </div>
+      <p class="ai-step-t" data-i18n="ai.step2.t">IA analiza</p>
+      <p class="ai-step-d" data-i18n="ai.step2.d">Entiende la petición y actúa al instante, 24/7</p>
+    </div>
+    <div class="ai-step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
+      <p class="ai-step-n">03</p>
+      <div class="ai-step-dot">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <p class="ai-step-t" data-i18n="ai.step3.t">Automatiza</p>
+      <p class="ai-step-d" data-i18n="ai.step3.d">Reservas, pagos, recordatorios y seguimiento</p>
+    </div>
+    <div class="ai-step" data-aos="fade-up" data-aos-duration="700" data-aos-delay="360">
+      <p class="ai-step-n">04</p>
+      <div class="ai-step-dot">
+        <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
+      <p class="ai-step-t" data-i18n="ai.step4.t">Resultados</p>
+      <p class="ai-step-d" data-i18n="ai.step4.d">Datos y métricas en tiempo real. Tú solo disfrutas</p>
+    </div>
+  </div>
+
+  <!-- Visual split -->
+  <div class="ai-visual" data-aos="fade-up" data-aos-duration="900">
+    <div class="ai-visual-img">
+      <div class="ai-visual-img-bg"></div>
+<div class="ai-notifs">
+        <div class="ai-notif">
+          <div class="ai-notif-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="ai-notif-body">
+            <span class="ai-notif-label">Villa Butterfly reservada ✓</span>
+            <span class="ai-notif-sub">Es Cubells · Ibiza · 7 noches</span>
+          </div>
+          <span class="ai-notif-dot"></span>
+        </div>
+        <div class="ai-notif">
+          <div class="ai-notif-icon"><svg viewBox="0 0 24 24"><path d="M3 17l4-8 4 4 3-5 4 9"/><path d="M3 20h18"/></svg></div>
+          <div class="ai-notif-body">
+            <span class="ai-notif-label">Yate confirmado ✓</span>
+            <span class="ai-notif-sub">Georgia · Sunseeker 82 · Ibiza</span>
+          </div>
+          <span class="ai-notif-dot"></span>
+        </div>
+        <div class="ai-notif">
+          <div class="ai-notif-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a2 2 0 012-2.18h3"/><polyline points="16 2 22 2 22 8"/><line x1="11" y1="11" x2="22" y2="2"/></svg></div>
+          <div class="ai-notif-body">
+            <span class="ai-notif-label">Llamada gestionada · 0.9s</span>
+            <span class="ai-notif-sub">IA atendió y confirmó disponibilidad</span>
+          </div>
+          <span class="ai-notif-dot"></span>
+        </div>
+        <div class="ai-notif">
+          <div class="ai-notif-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+          <div class="ai-notif-body">
+            <span class="ai-notif-label">14 solicitudes hoy</span>
+            <span class="ai-notif-sub">Gestionadas automáticamente · 24/7</span>
+          </div>
+          <span class="ai-notif-dot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="ai-visual-text">
+      <p class="ai-eye">Mientras tú disfrutas</p>
+      <h3 class="ai-visual-h">La IA trabaja,<br>gestiona y <em>convierte</em></h3>
+      <p class="ai-visual-p">Tu negocio de lujo en Ibiza y Tenerife nunca duerme. Nuestro sistema de IA atiende cada consulta, confirma cada reserva y cuida cada detalle — sin que tengas que intervenir.</p>
+      <div class="ai-checks">
+        <div class="ai-check"><div class="ai-check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Reservas de villa, yate y coche gestionadas automáticamente</span></div>
+        <div class="ai-check"><div class="ai-check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Llamadas y WhatsApp respondidos en menos de 1 segundo</span></div>
+        <div class="ai-check"><div class="ai-check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Seguimiento de clientes y recordatorios sin esfuerzo</span></div>
+        <div class="ai-check"><div class="ai-check-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Campañas de publicidad activas y optimizadas en todo momento</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="ai-cards">
+    <div class="ai-card" data-aos="fade-right" data-aos-duration="800" data-aos-delay="0">
+      <div class="ai-card-n">01</div>
+      <div class="ai-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      </div>
+      <h3 class="ai-t" data-i18n="ai.card1.t">Agente IA 24/7</h3>
+      <p class="ai-d" data-i18n="ai.card1.d">Responde consultas de clientes por WhatsApp en cualquier idioma, a cualquier hora, con el tono y la elegancia de SoulVIP.</p>
+      <div class="ai-tags">
+        <span class="ai-tag">WhatsApp</span>
+        <span class="ai-tag">Multiidioma</span>
+        <span class="ai-tag">24/7</span>
+      </div>
+    </div>
+    <div class="ai-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="120">
+      <div class="ai-card-n">02</div>
+      <div class="ai-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2m4 0h2M7 11h10"/></svg>
+      </div>
+      <h3 class="ai-t" data-i18n="ai.card2.t">Automatización para Proveedores</h3>
+      <p class="ai-d" data-i18n="ai.card2.d">Ayudamos a tus proveedores de yates, villas y coches a digitalizar y automatizar sus procesos para trabajar juntos de forma más eficiente.</p>
+      <div class="ai-tags">
+        <span class="ai-tag">Yates</span>
+        <span class="ai-tag">Villas</span>
+        <span class="ai-tag">Coches</span>
+      </div>
+    </div>
+    <div class="ai-card" data-aos="fade-left" data-aos-duration="800" data-aos-delay="240">
+      <div class="ai-card-n">03</div>
+      <div class="ai-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+      </div>
+      <h3 class="ai-t" data-i18n="ai.card3.t">Presencia Digital de Lujo</h3>
+      <p class="ai-d" data-i18n="ai.card3.d">Web, branding y estrategia de contenido premium para negocios de lujo que quieren destacar.</p>
+      <div class="ai-tags">
+        <span class="ai-tag">Web</span>
+        <span class="ai-tag">Branding</span>
+        <span class="ai-tag">Contenido Premium</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA bar -->
+  <div class="ai-cta-bar" data-aos="fade-up" data-aos-duration="800">
+    <div class="ai-cta-text">
+      <h3 data-i18n="ai.cta.h">¿Listo para automatizar tu <em>negocio de lujo</em>?</h3>
+      <p data-i18n="ai.cta.d">Cuéntanos qué procesos quieres delegar. Diseñamos una solución IA a medida para tu negocio — sin complicaciones, con resultados desde el primer día.</p>
+    </div>
+    <a href="https://wa.me/34661065257" target="_blank" rel="noopener" class="ai-cta-btn">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.99.574 3.847 1.564 5.41L2 22l4.74-1.542A9.955 9.955 0 0011.999 22C17.522 22 22 17.523 22 12S17.522 2 11.999 2zm0 18a7.955 7.955 0 01-4.053-1.108l-.29-.173-3.01.98.908-2.94-.19-.3A7.955 7.955 0 014 12c0-4.411 3.589-8 7.999-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+      <span data-i18n="ai.cta.btn">Solicitar Demo</span>
+    </a>
+  </div>
+
+  <!-- Mood banner -->
+  <div class="ai-mood">
+    <div class="ai-mood-body">
+      <span class="ai-mood-loc">Ibiza · Tenerife · Private World</span>
+      <div class="ai-mood-rule"></div>
+      <p class="ai-mood-q">"El lujo no se ofrece, <em>se vive</em> — y nosotros nos encargamos de que así sea, en cada detalle."</p>
+      <span class="ai-mood-author">— Silvana · A.I. SoulVIP Solutions</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- ABOUT / QUIÉN SOY -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img-col" data-aos="fade-right" data-aos-duration="900">
+      <div class="about-img" style="background-image:url('Silvana.jpeg')"></div>
+      <div class="about-badge">
+        <span class="about-badge-label">Concierge de Lujo · Fundadora</span>
+        <span class="about-badge-name">Silvana</span>
+      </div>
+    </div>
+    <div class="about-text" data-aos="fade-left" data-aos-duration="900" data-aos-delay="200">
+      <p class="about-eye">— Quién soy</p>
+      <h2 class="about-h">El lujo no se ofrece,<br><em>se vive</em></h2>
+      <div class="about-rule"></div>
+      <p class="about-p">Soy Silvana. Concierge de lujo y apasionada del estilo de vida exclusivo desde el corazón de Ibiza y Tenerife. Desde el primer día, mi misión ha sido la misma: que cada estancia, cada experiencia, cada momento que gestiono para ti sea <em style="color:var(--gold);font-style:italic">completamente único</em> — diseñado a tu medida, con discreción absoluta y un sello personal inconfundible.</p>
+      <p class="about-p">No creo en los paquetes estándar. Creo en escucharte, entenderte y anticiparme a lo que necesitas antes incluso de que lo pidas. Porque el verdadero lujo no está solo en la villa con vistas al mar — está en que cada deseo quede cubierto sin que tengas que preocuparte por nada.</p>
+      <p class="about-p">A lo largo de mi trayectoria he integrado la <em style="color:var(--gold);font-style:italic">inteligencia artificial</em> como aliada de este servicio. No para reemplazar el alma de unas vacaciones, sino para hacerlas todavía más perfectas: gestiones más ágiles, respuestas inmediatas, atención impecable en cualquier momento del día. La tecnología más avanzada al servicio de lo más humano — tu experiencia.</p>
+      <div class="about-vals">
+        <div class="about-val">
+          <p class="about-val-t">Cada experiencia, única</p>
+          <p class="about-val-d">Sin plantillas. Diseñada desde cero para ti</p>
+        </div>
+        <div class="about-val">
+          <p class="about-val-t">Discreción & Confianza</p>
+          <p class="about-val-d">Tu privacidad, mi prioridad absoluta</p>
+        </div>
+        <div class="about-val">
+          <p class="about-val-t">IA con alma</p>
+          <p class="about-val-d">Tecnología de vanguardia sin perder lo humano</p>
+        </div>
+        <div class="about-val">
+          <p class="about-val-t">Acceso exclusivo</p>
+          <p class="about-val-d">Lo que no está al alcance de todos, está al tuyo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="dest" id="destinations">
+  <div class="dest-panel" data-aos="fade-right" data-aos-duration="1000">
+    <div class="dest-panel-bg" style="background-image:url('Ibiza foto web.jpeg');background-position:center 50%"></div>
+    <div class="dest-panel-ov"></div>
+    <div class="dest-panel-body">
+      <span class="dest-tag">Isla Blanca · Mediterráneo</span>
+      <h2 class="dest-name">Ibiza</h2>
+      <p class="dest-desc">Villas de ensueño, yates exclusivos y las mejores mesas de la isla. El paraíso del Mediterráneo, curado para ti.</p>
+    </div>
+  </div>
+  <div class="dest-divider"></div>
+  <div class="dest-panel" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="120">
+    <div class="dest-panel-bg" style="background-image:url('Tenerife.jpeg');background-position:center 35%"></div>
+    <div class="dest-panel-ov"></div>
+    <div class="dest-panel-body">
+      <span class="dest-tag">Isla Eterna · Atlántico</span>
+      <h2 class="dest-name">Tenerife</h2>
+      <p class="dest-desc">Paisajes únicos, residencias premium y experiencias que no encontrarás en ningún catálogo. El lujo atlántico en su máxima expresión.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section class="cta-sect" id="contact">
+  <div class="cta-inner">
+
+    <div class="cta-left" data-aos="fade-right" data-aos-duration="900">
+      <p class="cta-eye">— Get in touch</p>
+      <h2 class="cta-h">Make Your<br><em>Request</em></h2>
+      <div class="cta-rule"></div>
+      <p class="cta-sub">Every great experience begins with a single conversation. Tell us what you dream of — we'll make it reality.</p>
+      <a href="https://wa.me/34661065257" target="_blank" rel="noopener" class="cta-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.99.574 3.847 1.564 5.41L2 22l4.74-1.542A9.955 9.955 0 0011.999 22C17.522 22 22 17.523 22 12S17.522 2 11.999 2zm0 18a7.955 7.955 0 01-4.053-1.108l-.29-.173-3.01.98.908-2.94-.19-.3A7.955 7.955 0 014 12c0-4.411 3.589-8 7.999-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        Escríbenos por WhatsApp
+      </a>
+      <p class="cta-note">Respuesta garantizada en <em>menos de 2 horas</em> · 24/7</p>
+    </div>
+
+    <div class="cta-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="160">
+      <p class="cta-form-hd">Solicitud Completa</p>
+      <p class="cta-form-sub">Cuéntanos todos los detalles de tu experiencia ideal</p>
+      <button class="cta-form-toggle" id="formToggle" onclick="toggleCtaForm()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+        Abrir formulario
+      </button>
+      <div class="cta-form-wrap" id="ctaFormWrap">
+        <form class="cta-form" id="ctaForm" onsubmit="handleCtaSubmit(event)">
+          <div class="cf-row">
+            <div class="cf-field">
+              <label class="cf-label" for="cf-name">Nombre</label>
+              <input class="cf-input" id="cf-name" type="text" placeholder="Tu nombre" required>
+            </div>
+            <div class="cf-field">
+              <label class="cf-label" for="cf-email">Email</label>
+              <input class="cf-input" id="cf-email" type="email" placeholder="tu@email.com" required>
+            </div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field">
+              <label class="cf-label" for="cf-phone">Teléfono</label>
+              <input class="cf-input" id="cf-phone" type="tel" placeholder="+34 661 065 257">
+            </div>
+            <div class="cf-field">
+              <label class="cf-label" for="cf-dest">Destino</label>
+              <select class="cf-select" id="cf-dest">
+                <option value="">Seleccionar</option>
+                <option value="ibiza">Ibiza</option>
+                <option value="tenerife">Tenerife</option>
+                <option value="ambos">Ibiza &amp; Tenerife</option>
+                <option value="otro">Otro destino</option>
+              </select>
+            </div>
+          </div>
+          <div class="cf-field">
+            <span class="cf-checks-label">Servicios de interés</span>
+            <div class="cf-checks">
+              <label class="cf-check"><input type="checkbox" value="villa"><span class="cf-check-label">Villa</span></label>
+              <label class="cf-check"><input type="checkbox" value="yate"><span class="cf-check-label">Yate</span></label>
+              <label class="cf-check"><input type="checkbox" value="coche"><span class="cf-check-label">Coche</span></label>
+              <label class="cf-check"><input type="checkbox" value="jet"><span class="cf-check-label">Jet Privado</span></label>
+              <label class="cf-check"><input type="checkbox" value="vip"><span class="cf-check-label">Experiencias VIP</span></label>
+              <label class="cf-check"><input type="checkbox" value="ia"><span class="cf-check-label">IA para mi negocio</span></label>
+            </div>
+          </div>
+          <div class="cf-field">
+            <label class="cf-label" for="cf-dates">Fechas aproximadas</label>
+            <input class="cf-input" id="cf-dates" type="text" placeholder="Ej: Julio 2025, 7 noches">
+          </div>
+          <div class="cf-field">
+            <label class="cf-label" for="cf-msg">Tu solicitud</label>
+            <textarea class="cf-textarea" id="cf-msg" placeholder="Cuéntanos qué experiencia deseas vivir..." required></textarea>
+          </div>
+          <button type="submit" class="cf-submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            Enviar solicitud
+          </button>
+          <div class="cf-sent" id="cfSent">✓ Solicitud recibida — te contactaremos en breve</div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-new">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <img src="Logo original.jpeg" alt="Soul VIP Solutions" class="footer-logo">
+        <div class="logo-name">
+          <span class="logo-name-main">Soul<em>VIP</em> Solutions</span>
+          <span class="logo-name-sub">Luxury Concierge · A.I.</span>
+        </div>
+      </a>
+      <p class="footer-brand-sub">Concierge de lujo e inteligencia artificial al servicio de experiencias únicas en Ibiza, Tenerife y el mundo privado.</p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Services</p>
+      <div class="footer-col-links">
+        <a href="#services">Villas de Lujo</a>
+        <a href="#services">Yates &amp; Chárter</a>
+        <a href="#services">Coches de Alta Gama</a>
+        <a href="#services">Experiencias VIP</a>
+        <a href="#ai">AI Concierge</a>
+        <a href="#ai">Automatización</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Contact</p>
+      <div class="footer-col-links">
+        <span>Ibiza · Tenerife</span>
+        <a href="https://wa.me/34661065257" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#contact">Solicitar Servicio</a>
+        <a href="#" data-i18n="foot.p">Política de Privacidad</a>
+        <a href="#" data-i18n="foot.t">Términos de Uso</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <p class="footer-col-title">Silvana Álvarez</p>
+      <div class="footer-col-links">
+        <a href="mailto:Silvana@soulvipsolutions.com" style="display:flex;align-items:center;gap:8px">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          Silvana@soulvipsolutions.com
+        </a>
+        <a href="https://www.instagram.com/soulvipsolutions.concierge.ai/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/soulvipsolutions" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          Facebook
+        </a>
+        <a href="https://www.soulvipsolutions.com" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          www.soulvipsolutions.com
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Soul VIP Solutions · All rights reserved</span>
+    <span class="footer-tagline">LUXURY · INTELLIGENCE · EXCELLENCE</span>
+  </div>
+</footer>
+
+<!-- VILLAS MODAL -->
+<div class="cm-overlay" id="villasModal" onclick="closeVillasOutside(event)">
+  <div class="cm-panel">
+
+    <div class="cm-hdr">
+      <div class="cm-hdr-left">
+        <span class="cm-eye">Ibiza · Tenerife</span>
+        <h2 class="cm-title">Villas de <em>Lujo</em></h2>
+      </div>
+      <button class="cm-close" onclick="closeVillas()" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="cm-hero-strip">
+      <p class="cm-tagline">Exclusividad · Privacidad · Vistas Únicas</p>
+      <p class="cm-sub">Residencias de lujo cuidadosamente seleccionadas en las mejores ubicaciones de Ibiza y Tenerife. Cada villa, una experiencia irrepetible.</p>
+    </div>
+
+    <div class="vm-grid">
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('villa amazonica 2.png');background-position:center 30%"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Ibiza · Puerto a 5 min</span>
+          <h3 class="vm-name">Villa Amazónica</h3>
+          <div class="vm-stats"><span>6 hab</span><span>8 baños</span><span>18 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('vista choiba.png');background-position:center 30%"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Vista Alegre · Ibiza</span>
+          <h3 class="vm-name">Villa Vista Choiba</h3>
+          <div class="vm-stats"><span>4 hab</span><span>5 baños</span><span>8 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('Vista Allen.png');background-position:center 40%"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Forada · Ibiza</span>
+          <h3 class="vm-name">Villa Allen</h3>
+          <div class="vm-stats"><span>5 hab</span><span>6 baños</span><span>10 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('villa Can Sinatra.png')"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Ibiza</span>
+          <h3 class="vm-name">Villa Can Sinatra</h3>
+          <div class="vm-stats"><span>6 hab</span><span>6 baños</span><span>12 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('Villa Can Goi2.jpeg')"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Ibiza</span>
+          <h3 class="vm-name">Villa Can Goi</h3>
+          <div class="vm-stats"><span>9 hab</span><span>11 baños</span><span>18 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('Villa Can Flower.png')"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Santa Eularia des Riu · Ibiza</span>
+          <h3 class="vm-name">Villa Can Flowers</h3>
+          <div class="vm-stats"><span>7 hab</span><span>7 baños</span><span>14 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('Villa Halo Azul.png')"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Tenerife Sur</span>
+          <h3 class="vm-name">Villa Halo Azul</h3>
+          <div class="vm-stats"><span>6 hab</span><span>7 baños</span><span>12 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('Villa Jaspe Golf.png')"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Tenerife Sur</span>
+          <h3 class="vm-name">Villa Jaspe Golf</h3>
+          <div class="vm-stats"><span>4 hab</span><span>4 baños</span><span>8 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('Villa Majestic.png')"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Tenerife Sur</span>
+          <h3 class="vm-name">Villa Majestic</h3>
+          <div class="vm-stats"><span>10 hab</span><span>10 baños</span><span>20 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('Villa Imperial.png')"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Tenerife Sur</span>
+          <h3 class="vm-name">Villa Imperial</h3>
+          <div class="vm-stats"><span>8 hab</span><span>8 baños</span><span>16 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('Villa Blanca Real.png')"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Tenerife Sur</span>
+          <h3 class="vm-name">Villa Blanca Real</h3>
+          <div class="vm-stats"><span>4 hab</span><span>4 baños</span><span>8 pers</span></div>
+        </div>
+      </div>
+
+      <div class="vm-card">
+        <div class="vm-img" style="background-image:url('Villa Kanaria.png')"></div>
+        <div class="vm-info">
+          <span class="vm-loc">Tenerife Sur</span>
+          <h3 class="vm-name">Villa Kanaria</h3>
+          <div class="vm-stats"><span>4 hab</span><span>3 baños</span><span>8 pers</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;padding:28px 24px 8px;border-top:1px solid var(--border)">
+      <p style="color:var(--gold);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px">Nuestra Selección</p>
+      <p style="color:var(--light);font-size:0.97rem;line-height:1.7;max-width:620px;margin:0 auto">Disponemos de una amplia variedad de villas exclusivas en Ibiza y Tenerife. Si deseas más información, nos encargaremos de seleccionar y presentarte las opciones más adaptadas a lo que buscas.</p>
+    </div>
+
+    <div class="cm-footer">
+      <div class="cm-footer-left">
+        <p class="cm-footer-label">¿Tienes en mente una villa?</p>
+        <p class="cm-footer-text">Consúltanos — gestionamos todo para que solo tengas que disfrutar.</p>
+      </div>
+      <a href="https://wa.me/34661065257" target="_blank" class="cm-wa-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.99.574 3.847 1.564 5.41L2 22l4.74-1.542A9.955 9.955 0 0011.999 22C17.522 22 22 17.523 22 12S17.522 2 11.999 2zm0 18a7.955 7.955 0 01-4.053-1.108l-.29-.173-3.01.98.908-2.94-.19-.3A7.955 7.955 0 014 12c0-4.411 3.589-8 7.999-8s8 3.589 8 8-3.589 8-8 8z"/>
+        </svg>
+        Consultar Disponibilidad
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- YACHTS MODAL -->
+<div class="cm-overlay" id="yachtsModal" onclick="closeYachtsOutside(event)">
+  <div class="cm-panel">
+
+    <div class="cm-hdr">
+      <div class="cm-hdr-left">
+        <span class="cm-eye">Mediterráneo · Ibiza · Tenerife</span>
+        <h2 class="cm-title">Yates de <em>Lujo</em></h2>
+      </div>
+      <button class="cm-close" onclick="closeYachts()" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="cm-hero-strip">
+      <p class="cm-tagline">Exclusividad · Mar · Libertad</p>
+      <p class="cm-sub">Seleccionamos los mejores yates del Mediterráneo para tu charter privado. Desde veleros de lujo hasta superyates de alta gama.</p>
+    </div>
+
+    <div class="cm-grid">
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('http://www.coralyachting.com/pics_fotosalquileres/177/med_full_riva-argo-90-ella-2.jpg');background-position:center 30%"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Riva · Superyate</span>
+          <h3 class="cm-car-name">Ella</h3>
+          <p class="cm-car-desc">Riva Argo 90 · Elegancia italiana en su máxima expresión · Ibiza</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('http://www.coralyachting.com/pics_fotosalquileres/55/med_full_black-jax-11.jpg');background-position:center 40%"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Sunseeker · Motor Yacht</span>
+          <h3 class="cm-car-name">Black Jax</h3>
+          <p class="cm-car-desc">Predator 74 · Velocidad y estilo · Ibiza & Formentera</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('http://www.coralyachting.com/pics_fotosalquileres/57/med_full_georgia-14.jpg');background-position:center 35%"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Sunseeker · Motor Yacht</span>
+          <h3 class="cm-car-name">Georgia</h3>
+          <p class="cm-car-desc">Predator 82 · Hasta 10 personas · Ibiza</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('http://www.coralyachting.com/pics_fotosalquileres/65/med_full_invictus.jpg');background-position:center 40%"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Riva · Day Charter</span>
+          <h3 class="cm-car-name">Invictus</h3>
+          <p class="cm-car-desc">Rivale 52 · Icono del diseño náutico · Ibiza</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('http://www.coralyachting.com/pics_fotosalquileres/144/med_full_vanquish-52-for-rent-alquiler-ibiza-formentera-yacht-charter-3.jpg');background-position:center 45%"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Vanquish · Motor Yacht</span>
+          <h3 class="cm-car-name">Casa Atlantis</h3>
+          <p class="cm-car-desc">VQ52 · Prestaciones extremas · Ibiza & Formentera</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('http://www.coralyachting.com/pics_fotosalquileres/157/med_full_fjord-52-open-lolo-3-formentera-ibiza-charter-rent-alquiler-boat-barco-yacht-29.jpg');background-position:center 40%"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Fjord · Open Yacht</span>
+          <h3 class="cm-car-name">Lolo III</h3>
+          <p class="cm-car-desc">Fjord 52 Open · Diseño escandinavo · Formentera & Ibiza</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('http://www.coralyachting.com/pics_fotosalquileres/52/med_full_1-13.jpg');background-position:center 35%"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Pershing · Motor Yacht</span>
+          <h3 class="cm-car-name">Sensation</h3>
+          <p class="cm-car-desc">Pershing 72 · Alta velocidad y confort · Mediterráneo</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('http://www.coralyachting.com/pics_fotosalquileres/140/med_full_dsc07442.jpg');background-position:center 40%"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Sunseeker · Motor Yacht</span>
+          <h3 class="cm-car-name">Number 9</h3>
+          <p class="cm-car-desc">Predator 72 · Lujo en movimiento · Ibiza</p>
+        </div>
+      </div>
+
+      <div class="cm-car cm-car--toys">
+        <div class="cm-car-img cm-car-img--toys" style="background-image:url('yates/juguetes de lujo.jpeg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">4 Experiencias · Ibiza · Tenerife</span>
+          <h3 class="cm-car-name">Actividades Acuáticas</h3>
+          <p class="cm-car-desc">Moto Acuática · Flyboard · Lámina Electrónica · Seabob</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cm-fleet-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>Trabajamos con los <em>mejores proveedores de yates en Ibiza</em>, con opciones adaptadas a todos los presupuestos. Tanto si buscas una salida de día como una experiencia completa, también ofrecemos la posibilidad de <em>pernoctar a bordo</em> — gestionamos el charter de principio a fin.</p>
+    </div>
+
+    <div class="cm-providers">
+      <div class="cm-prov-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-8 4 4 3-5 4 9"/><path d="M3 20h18"/></svg>
+      </div>
+      <div class="cm-prov-body">
+        <h4 class="cm-prov-title">Charter personalizado en el Mediterráneo</h4>
+        <p class="cm-prov-text">Te asesoramos para encontrar la embarcación ideal según tus necesidades: número de personas, días, destino y presupuesto. <strong>Gestionamos el charter de principio a fin</strong> — tripulación, provisiones, ruta y más.</p>
+      </div>
+    </div>
+
+    <div class="cm-footer">
+      <div class="cm-footer-left">
+        <p class="cm-footer-label">¿Listo para zarpar?</p>
+        <p class="cm-footer-text">Cuéntanos tu plan y encontramos el yate perfecto para ti.</p>
+      </div>
+      <a href="https://wa.me/34661065257" target="_blank" class="cm-wa-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.99.574 3.847 1.564 5.41L2 22l4.74-1.542A9.955 9.955 0 0011.999 22C17.522 22 22 17.523 22 12S17.522 2 11.999 2zm0 18a7.955 7.955 0 01-4.053-1.108l-.29-.173-3.01.98.908-2.94-.19-.3A7.955 7.955 0 014 12c0-4.411 3.589-8 7.999-8s8 3.589 8 8-3.589 8-8 8z"/>
+        </svg>
+        Consultar Disponibilidad
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- CARS MODAL -->
+<div class="cm-overlay" id="carsModal" onclick="closeCarsOutside(event)">
+  <div class="cm-panel">
+
+    <!-- header -->
+    <div class="cm-hdr">
+      <div class="cm-hdr-left">
+        <span class="cm-eye">Alta Gama · España</span>
+        <h2 class="cm-title">Coches de <em>Lujo</em></h2>
+      </div>
+      <button class="cm-close" onclick="closeCars()" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- hero strip -->
+    <div class="cm-hero-strip">
+      <p class="cm-tagline">Prestigio · Rendimiento · Estilo</p>
+      <p class="cm-sub">Nuestra flota de alta gama está lista para ti. Desde superdeportivos hasta SUV de lujo, seleccionamos solo lo mejor.</p>
+    </div>
+
+    <!-- fleet grid -->
+    <div class="cm-grid">
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('lamb1.jpg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Lamborghini</span>
+          <h3 class="cm-car-name">Huracán</h3>
+          <p class="cm-car-desc">Turquesa · 640 CV · 325 km/h</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('https://magycluxurysilvana.com/wp-content/uploads/2025/07/FERRARI-scaled.jpg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Ferrari</span>
+          <h3 class="cm-car-name">Superdeportivo</h3>
+          <p class="cm-car-desc">Rendimiento sin concesiones</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('https://magycluxurysilvana.com/wp-content/uploads/2025/07/URUS-scaled.jpg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Lamborghini</span>
+          <h3 class="cm-car-name">Urus</h3>
+          <p class="cm-car-desc">SUV de lujo · 650 CV</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('McKlaren.jpg')"></div>
+        <div class="vm-info">
+          <span class="cm-car-brand">McLaren</span>
+          <h3 class="cm-car-name">570S</h3>
+          <p class="cm-car-desc">Superdeportivo · Potencia y precisión británica</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('https://magycluxurysilvana.com/wp-content/uploads/2025/07/porsche-ibiza-scaled.jpg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Porsche</span>
+          <h3 class="cm-car-name">Ibiza Edition</h3>
+          <p class="cm-car-desc">Del diseño a la velocidad</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('https://magycluxurysilvana.com/wp-content/uploads/2025/07/mercedez-ibiza-4x4.jpg3_-scaled.jpg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Mercedes</span>
+          <h3 class="cm-car-name">4×4 Ibiza</h3>
+          <p class="cm-car-desc">Todo terreno · Gran confort</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('Defender 7 plazas.jpeg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Land Rover · SUV</span>
+          <h3 class="cm-car-name">Defender 7 Plazas</h3>
+          <p class="cm-car-desc">Aventura y confort · Perfecto para grupos</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('ranger rover sport.jpeg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Land Rover · SUV Premium</span>
+          <h3 class="cm-car-name">Range Rover Sport</h3>
+          <p class="cm-car-desc">Elegancia todoterreno · Lujo en movimiento</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('Mercedez V Class.jpeg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Mercedes · VIP</span>
+          <h3 class="cm-car-name">Mercedes V Class</h3>
+          <p class="cm-car-desc">Alquiler privado o servicio de transfer · Máximo confort grupal</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- nota flota -->
+    <div class="cm-fleet-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>Estos son <em>algunos</em> de nuestros vehículos disponibles. Nuestra flota se actualiza constantemente.</p>
+    </div>
+
+    <!-- proveedores -->
+    <div class="cm-providers">
+      <div class="cm-prov-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="cm-prov-body">
+        <h4 class="cm-prov-title">Trabajamos con los mejores proveedores de las islas</h4>
+        <p class="cm-prov-text">Contamos con una red de proveedores seleccionados — los más serios, fiables y exclusivos de Ibiza y Tenerife. Si tienes en mente un vehículo concreto, <strong>cuéntanos qué necesitas y lo encontramos para ti.</strong> Sin compromiso, con total discreción.</p>
+      </div>
+    </div>
+
+    <!-- footer CTA -->
+    <div class="cm-footer">
+      <div class="cm-footer-left">
+        <p class="cm-footer-label">¿Qué vehículo necesitas?</p>
+        <p class="cm-footer-text">Consúltanos y te lo gestionamos. Nos encargamos de todo.</p>
+      </div>
+      <a href="https://wa.me/34661065257" target="_blank" class="cm-wa-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.99.574 3.847 1.564 5.41L2 22l4.74-1.542A9.955 9.955 0 0011.999 22C17.522 22 22 17.523 22 12S17.522 2 11.999 2zm0 18a7.955 7.955 0 01-4.053-1.108l-.29-.173-3.01.98.908-2.94-.19-.3A7.955 7.955 0 014 12c0-4.411 3.589-8 7.999-8s8 3.589 8 8-3.589 8-8 8z"/>
+        </svg>
+        Consultar Disponibilidad
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- VIP EXPERIENCES MODAL -->
+<div class="cm-overlay" id="vipModal" onclick="closeVIPOutside(event)">
+  <div class="cm-panel">
+
+    <div class="cm-hdr">
+      <div class="cm-hdr-left">
+        <span class="cm-eye">Ibiza · Tenerife · Mundo Privado</span>
+        <h2 class="cm-title">Experiencias <em>VIP</em></h2>
+      </div>
+      <button class="cm-close" onclick="closeVIP()" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="cm-hero-strip">
+      <p class="cm-tagline">Exclusividad · Distinción · Momentos Únicos</p>
+      <p class="cm-sub">Diseñamos experiencias únicas e irrepetibles para quienes buscan algo más que el lujo convencional. Cada detalle, pensado para ti.</p>
+    </div>
+
+    <div class="cm-grid">
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('reservas gastronomicas.jpeg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Gastronomía · Exclusivo</span>
+          <h3 class="cm-car-name">Reservas Gastronómicas</h3>
+          <p class="cm-car-desc">Acceso prioritario a los restaurantes más codiciados de la isla</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('welness.jpeg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Wellness · Privado</span>
+          <h3 class="cm-car-name">Spa & Wellness</h3>
+          <p class="cm-car-desc">Masajes, tratamientos y bienestar sin moverte de tu villa o yate</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('chef privado.jpg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Gastronomía · Chef</span>
+          <h3 class="cm-car-name">Chefs Privados</h3>
+          <p class="cm-car-desc">Cocina de autor en tu propia villa o yate, a tu medida</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('reservasvip.jpeg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Celebraciones · Eventos</span>
+          <h3 class="cm-car-name">Despedidas & Celebraciones</h3>
+          <p class="cm-car-desc">Desde una cena íntima hasta una fiesta inolvidable en Ibiza</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('https://magycluxurysilvana.com/wp-content/uploads/2025/07/quads-1024x661.jpg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Aventura · Adrenalina</span>
+          <h3 class="cm-car-name">Aventura & Actividades</h3>
+          <p class="cm-car-desc">Quads, parapente, buceo, helicóptero — emociones sin límite</p>
+        </div>
+      </div>
+
+      <div class="cm-car">
+        <div class="cm-car-img" style="background-image:url('https://magycluxurysilvana.com/wp-content/uploads/2025/07/AVION-.jpg')"></div>
+        <div class="cm-car-info">
+          <span class="cm-car-brand">Jet Privado · Premium</span>
+          <h3 class="cm-car-name">Jets Privados</h3>
+          <p class="cm-car-desc">Vuelos privados a medida — llegada y salida según tu agenda</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cm-fleet-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>Estas son <em>algunas</em> de las experiencias que diseñamos. Cuéntanos qué deseas vivir y lo hacemos realidad.</p>
+    </div>
+
+    <div class="cm-providers">
+      <div class="cm-prov-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="cm-prov-body">
+        <h4 class="cm-prov-title">Experiencias diseñadas a medida para ti</h4>
+        <p class="cm-prov-text">Trabajamos con una red de proveedores exclusivos en Ibiza y Tenerife. <strong>Cuéntanos qué quieres vivir y lo organizamos de principio a fin</strong> — con total discreción y atención al detalle.</p>
+      </div>
+    </div>
+
+    <div class="cm-footer">
+      <div class="cm-footer-left">
+        <p class="cm-footer-label">¿Qué experiencia sueñas?</p>
+        <p class="cm-footer-text">Cuéntanos y la hacemos realidad. Sin límites, con total discreción.</p>
+      </div>
+      <a href="https://wa.me/34661065257" target="_blank" class="cm-wa-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.99.574 3.847 1.564 5.41L2 22l4.74-1.542A9.955 9.955 0 0011.999 22C17.522 22 22 17.523 22 12S17.522 2 11.999 2zm0 18a7.955 7.955 0 01-4.053-1.108l-.29-.173-3.01.98.908-2.94-.19-.3A7.95 7.95 0 014 12c0-4.411 3.589-8 7.999-8s8 3.589 8 8-3.589 8-8 8z"/>
+        </svg>
+        Consultar Disponibilidad
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FIXED BOTTOM BAR -->
+<div class="bar">
+  <div class="bar-left">
+    <span class="bar-brand">Soul VIP Solutions</span>
+    <div class="bar-sep"></div>
+    <span class="bar-loc" data-i18n="bar.loc">Ibiza · Tenerife · Private World</span>
+  </div>
+  <a href="https://wa.me/34661065257" target="_blank" rel="noopener" class="bar-cta">
+    <svg class="wa-ico" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.99.574 3.847 1.564 5.41L2 22l4.74-1.542A9.955 9.955 0 0011.999 22C17.522 22 22 17.523 22 12S17.522 2 11.999 2zm0 18a7.955 7.955 0 01-4.053-1.108l-.29-.173-3.01.98.908-2.94-.19-.3A7.955 7.955 0 014 12c0-4.411 3.589-8 7.999-8s8 3.589 8 8-3.589 8-8 8z"/>
+    </svg>
+    <span data-i18n="bar.cta">Make a Request</span>
+  </a>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+/* AOS init */
+AOS.init({duration:800,once:true,easing:'ease-out-cubic',offset:60});
+
+/* stat counter */
+function runCounter(el,target,suffix){
+  let n=0,steps=40,inc=Math.max(1,Math.ceil(target/steps)),delay=Math.round(1100/steps);
+  const t=setInterval(()=>{n=Math.min(n+inc,target);el.textContent=n+suffix;if(n>=target)clearInterval(t)},delay);
+}
+let statsDone=false;
+const statsEl=document.querySelector('.ai-stats');
+if(statsEl){
+  new IntersectionObserver(([e])=>{
+    if(e.isIntersecting&&!statsDone){
+      statsDone=true;
+      const s1=document.querySelector('[data-count="24"]'),s2=document.querySelector('[data-count="6"]');
+      if(s1)runCounter(s1,24,s1.dataset.suffix);
+      if(s2)runCounter(s2,6,s2.dataset.suffix);
+    }
+  },{threshold:.5}).observe(statsEl);
+}
+
+/* header scroll */
+const hdr=document.getElementById('hdr');
+window.addEventListener('scroll',()=>hdr.classList.toggle('solid',scrollY>60),{passive:true});
+
+/* scroll reveal (residual .rv/.rv2 elements) */
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv,.rv2').forEach(el=>obs.observe(el));
+
+/* smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}}));
+
+/* villas modal */
+const villasModal=document.getElementById('villasModal');
+function openVillas(e){if(e)e.stopPropagation();villasModal.classList.add('open');document.body.style.overflow='hidden'}
+function closeVillas(){villasModal.classList.remove('open');document.body.style.overflow=''}
+function closeVillasOutside(e){if(e.target===villasModal)closeVillas()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVillas();closeYachts();closeCars()}});
+
+/* yachts modal */
+const yachtsModal=document.getElementById('yachtsModal');
+function openYachts(e){if(e)e.stopPropagation();yachtsModal.classList.add('open');document.body.style.overflow='hidden'}
+function closeYachts(){yachtsModal.classList.remove('open');document.body.style.overflow=''}
+function closeYachtsOutside(e){if(e.target===yachtsModal)closeYachts()}
+
+/* cars modal */
+const carsModal=document.getElementById('carsModal');
+function openCars(e){if(e)e.stopPropagation();carsModal.classList.add('open');document.body.style.overflow='hidden'}
+function closeCars(){carsModal.classList.remove('open');document.body.style.overflow=''}
+function closeCarsOutside(e){if(e.target===carsModal)closeCars()}
+
+/* vip modal */
+const vipModal=document.getElementById('vipModal');
+function openVIP(e){if(e)e.stopPropagation();vipModal.classList.add('open');document.body.style.overflow='hidden'}
+function closeVIP(){vipModal.classList.remove('open');document.body.style.overflow=''}
+function closeVIPOutside(e){if(e.target===vipModal)closeVIP()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeVillas();closeYachts();closeCars();closeVIP()}});
+
+/* CTA form toggle */
+function toggleCtaForm(){
+  const wrap=document.getElementById('ctaFormWrap'),btn=document.getElementById('formToggle');
+  const isOpen=wrap.classList.toggle('open');
+  btn.classList.toggle('open',isOpen);
+  btn.querySelector('span')?null:null;
+  btn.lastChild.textContent=isOpen?' Cerrar formulario':' Abrir formulario';
+}
+async function handleCtaSubmit(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.cf-submit');
+  const orig=btn.innerHTML;
+  btn.disabled=true;
+  btn.innerHTML='<span style="opacity:.5;font-size:inherit;letter-spacing:inherit">Enviando...</span>';
+
+  const servicios=[...document.querySelectorAll('#ctaForm input[type=checkbox]:checked')]
+    .map(cb=>cb.value).join(', ')||'No especificados';
+
+  const payload={
+    access_key:'7b405cc6-7e95-4b84-9f8e-c54c8eefa65b',
+    subject:'🔔 Nueva solicitud — SoulVIP Solutions',
+    from_name:'SoulVIP Solutions Web',
+    name:document.getElementById('cf-name').value,
+    email:document.getElementById('cf-email').value,
+    telefono:document.getElementById('cf-phone').value||'—',
+    destino:document.getElementById('cf-dest').value||'—',
+    servicios,
+    fechas:document.getElementById('cf-dates').value||'—',
+    mensaje:document.getElementById('cf-msg').value
+  };
+
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    const json=await res.json();
+    if(json.success){
+      const form=document.getElementById('ctaForm');
+      form.style.transition='opacity .5s';
+      form.style.opacity='.35';
+      setTimeout(()=>{form.style.display='none';document.getElementById('cfSent').style.display='block';},520);
+    } else {
+      btn.disabled=false;btn.innerHTML=orig;
+      alert('Error al enviar. Por favor, contáctanos por WhatsApp.');
+    }
+  } catch(err){
+    btn.disabled=false;btn.innerHTML=orig;
+    alert('Error de conexión. Por favor, contáctanos por WhatsApp.');
+  }
+}
+
+/* nav smooth scroll */
+document.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',e=>{
+  const target=document.querySelector(a.getAttribute('href'));
+  if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'})}
+}));
+
+/* i18n */
+const T={
+  en:{
+    "hero.eye":"Elite Concierge · AI-Powered Solutions",
+    "hero.h1":"Where <em>Luxury</em><br>Meets Intelligence",
+    "hero.loc":"IBIZA · TENERIFE · PRIVATE WORLD",
+    "srv.label":"— Concierge Services",
+    "srv.villas":"Villas","srv.villas.s":"Private estates worldwide",
+    "srv.yachts":"Yachts","srv.yachts.s":"Charter the Mediterranean",
+    "srv.cars":"Luxury Cars","srv.cars.s":"Icons of automotive elegance",
+    "srv.vip":"VIP Experiences","srv.vip.s":"Moments beyond imagination",
+    "ai.eye":"Artificial Intelligence",
+    "ai.h2":"Your <em>Intelligent</em><br>Concierge works for you",
+    "ai.intro":"An intelligent assistant engages your clients instantly on WhatsApp, answers their questions, builds trust and alerts you when they need your personal attention. You focus on what matters — we take care of the rest.",
+    "ai.live":"System active · Real time",
+    "ai.heading.eye":"Artificial Intelligence · SoulVIP",
+    "ai.heading.h2":"While you enjoy, <em>AI gets to work</em>",
+    "ai.heading.sub":"Your luxury business never sleeps",
+    "ai.step1.t":"Client contacts","ai.step1.d":"WhatsApp, call, web or email — any channel",
+    "ai.step2.t":"AI analyses","ai.step2.d":"Understands the request and acts instantly, 24/7",
+    "ai.step3.t":"Automates","ai.step3.d":"Bookings, payments, reminders and follow-ups",
+    "ai.step4.t":"Results","ai.step4.d":"Real-time data and metrics. You just enjoy",
+    "ai.card1.t":"AI Agent 24/7","ai.card1.d":"Answers client enquiries on WhatsApp in any language, at any hour, with the tone and elegance of SoulVIP.",
+    "ai.card2.t":"Automation for Suppliers","ai.card2.d":"We help your yacht, villa and car suppliers digitise and automate their processes to work together more efficiently.",
+    "ai.card3.t":"Luxury Digital Presence","ai.card3.d":"Website, branding and premium content strategy for luxury businesses that want to stand out.",
+    "ai.cta.h":"Ready to automate your <em>luxury business</em>?","ai.cta.d":"Tell us which processes you want to delegate. We design a bespoke AI solution for your business — no complications, results from day one.","ai.cta.btn":"Request a Demo",
+    "bar.loc":"Ibiza · Tenerife · Private World","bar.cta":"Make a Request",
+    "villas.btn":"View Villas",
+    "yachts.btn":"View Yachts",
+    "cars.btn":"View Fleet",
+    "vip.btn":"View Experiences",
+    "foot.c":"© 2025 A.I. SoulVIP Solutions. All rights reserved.","foot.p":"Privacy","foot.t":"Terms"
+  },
+  es:{
+    "hero.eye":"Conserjería Elite · Soluciones con IA",
+    "hero.h1":"Donde el <em>Lujo</em><br>Se Encuentra con la Inteligencia",
+    "hero.loc":"IBIZA · TENERIFE · MUNDO PRIVADO",
+    "srv.label":"— Servicios de Conserjería",
+    "srv.villas":"Villas","srv.villas.s":"Residencias privadas en todo el mundo",
+    "srv.yachts":"Yates","srv.yachts.s":"Charter por el Mediterráneo",
+    "srv.cars":"Coches de Lujo","srv.cars.s":"Íconos del automovilismo de élite",
+    "srv.vip":"Experiencias VIP","srv.vip.s":"Momentos más allá de lo imaginable",
+    "ai.eye":"Inteligencia Artificial",
+    "ai.h2":"Tu Concierge <em>Inteligente</em><br>trabaja por ti",
+    "ai.intro":"Un asistente inteligente atiende a tus clientes al instante por WhatsApp, responde sus preguntas, les inspira confianza y te avisa cuando necesitan tu atención personal. Tú te centras en lo importante — nosotros nos ocupamos del resto.",
+    "ai.live":"Sistema activo · En tiempo real",
+    "ai.heading.eye":"Inteligencia Artificial · SoulVIP",
+    "ai.heading.h2":"Mientras tú disfrutas, <em>la IA trabaja</em>",
+    "ai.heading.sub":"Tu negocio de lujo nunca duerme",
+    "ai.step1.t":"Cliente contacta","ai.step1.d":"WhatsApp, llamada, web o email — cualquier canal",
+    "ai.step2.t":"IA analiza","ai.step2.d":"Entiende la petición y actúa al instante, 24/7",
+    "ai.step3.t":"Automatiza","ai.step3.d":"Reservas, pagos, recordatorios y seguimiento",
+    "ai.step4.t":"Resultados","ai.step4.d":"Datos y métricas en tiempo real. Tú solo disfrutas",
+    "ai.card1.t":"Agente IA 24/7","ai.card1.d":"Responde consultas de clientes por WhatsApp en cualquier idioma, a cualquier hora, con el tono y la elegancia de SoulVIP.",
+    "ai.card2.t":"Automatización para Proveedores","ai.card2.d":"Ayudamos a tus proveedores de yates, villas y coches a digitalizar y automatizar sus procesos para trabajar juntos de forma más eficiente.",
+    "ai.card3.t":"Presencia Digital de Lujo","ai.card3.d":"Web, branding y estrategia de contenido premium para negocios de lujo que quieren destacar.",
+    "ai.cta.h":"¿Listo para automatizar tu <em>negocio de lujo</em>?","ai.cta.d":"Cuéntanos qué procesos quieres delegar. Diseñamos una solución IA a medida para tu negocio — sin complicaciones, con resultados desde el primer día.","ai.cta.btn":"Solicitar Demo",
+    "bar.loc":"Ibiza · Tenerife · Mundo Privado","bar.cta":"Hacer una Solicitud",
+    "villas.btn":"Ver Villas",
+    "yachts.btn":"Ver Yates",
+    "cars.btn":"Ver Flota",
+    "vip.btn":"Ver Experiencias",
+    "foot.c":"© 2025 A.I. SoulVIP Solutions. Todos los derechos reservados.","foot.p":"Privacidad","foot.t":"Términos"
+  },
+  ru:{
+    "hero.eye":"Элитный Консьерж · Решения на основе ИИ",
+    "hero.h1":"Где <em>Роскошь</em><br>Встречает Интеллект",
+    "hero.loc":"ИБИЦА · ТЕНЕРИФЕ · ПРИВАТНЫЙ МИР",
+    "srv.label":"— Консьерж-Услуги",
+    "srv.villas":"Виллы","srv.villas.s":"Частные резиденции по всему миру",
+    "srv.yachts":"Яхты","srv.yachts.s":"Чартер по Средиземному морю",
+    "srv.cars":"Люксовые Авто","srv.cars.s":"Иконы автомобильной элегантности",
+    "srv.vip":"VIP Впечатления","srv.vip.s":"Моменты, превосходящие воображение",
+    "ai.eye":"Искусственный Интеллект",
+    "ai.h2":"Ваш <em>Интеллектуальный</em><br>Консьерж работает за вас",
+    "ai.intro":"Умный ассистент мгновенно отвечает вашим клиентам в WhatsApp, отвечает на их вопросы, вызывает доверие и уведомляет вас, когда требуется ваше личное внимание. Вы сосредоточены на главном — обо всём остальном заботимся мы.",
+    "ai.live":"Система активна · В реальном времени",
+    "ai.heading.eye":"Искусственный интеллект · SoulVIP",
+    "ai.heading.h2":"Пока вы отдыхаете, <em>ИИ работает</em>",
+    "ai.heading.sub":"Ваш люкс-бизнес никогда не спит",
+    "ai.step1.t":"Клиент связывается","ai.step1.d":"WhatsApp, звонок, веб или email — любой канал",
+    "ai.step2.t":"ИИ анализирует","ai.step2.d":"Понимает запрос и действует мгновенно, 24/7",
+    "ai.step3.t":"Автоматизирует","ai.step3.d":"Бронирование, платежи, напоминания и сопровождение",
+    "ai.step4.t":"Результаты","ai.step4.d":"Данные и метрики в реальном времени",
+    "ai.card1.t":"ИИ-агент 24/7","ai.card1.d":"Отвечает на запросы клиентов в WhatsApp на любом языке и в любое время — с тоном и элегантностью SoulVIP.",
+    "ai.card2.t":"Автоматизация для поставщиков","ai.card2.d":"Помогаем вашим поставщикам яхт, вилл и автомобилей оцифровать и автоматизировать процессы для более эффективной совместной работы.",
+    "ai.card3.t":"Люксовое цифровое присутствие","ai.card3.d":"Веб-сайт, брендинг и премиальная контент-стратегия для люксовых компаний, которые хотят выделяться.",
+    "ai.cta.h":"Готовы автоматизировать <em>ваш люкс-бизнес</em>?","ai.cta.d":"Расскажите, какие процессы хотите делегировать. Разработаем индивидуальное ИИ-решение для вашего бизнеса.","ai.cta.btn":"Запросить Демо",
+    "bar.loc":"Ибица · Тенерифе · Приватный Мир","bar.cta":"Сделать Запрос",
+    "villas.btn":"Смотреть Виллы",
+    "yachts.btn":"Смотреть Яхты",
+    "cars.btn":"Смотреть Флот",
+    "vip.btn":"Смотреть Впечатления",
+    "foot.c":"© 2025 A.I. SoulVIP Solutions. Все права защищены.","foot.p":"Конфиденциальность","foot.t":"Условия"
+  },
+  de:{
+    "hero.eye":"Elite-Concierge · KI-gestützte Lösungen",
+    "hero.h1":"Wo <em>Luxus</em><br>auf Intelligenz Trifft",
+    "hero.loc":"IBIZA · TENERIFFA · PRIVATE WELT",
+    "srv.label":"— Concierge-Services",
+    "srv.villas":"Villen","srv.villas.s":"Private Anwesen weltweit",
+    "srv.yachts":"Yachten","srv.yachts.s":"Charter im Mittelmeer",
+    "srv.cars":"Luxusautos","srv.cars.s":"Ikonen automobiler Eleganz",
+    "srv.vip":"VIP Erlebnisse","srv.vip.s":"Momente jenseits der Vorstellung",
+    "ai.eye":"Künstliche Intelligenz",
+    "ai.h2":"Ihr <em>Intelligenter</em><br>Concierge arbeitet für Sie",
+    "ai.intro":"Ein intelligenter Assistent betreut Ihre Kunden sofort per WhatsApp, beantwortet ihre Fragen, schafft Vertrauen und informiert Sie, wenn Ihre persönliche Aufmerksamkeit gefragt ist. Sie konzentrieren sich auf das Wesentliche — wir übernehmen den Rest.",
+    "ai.live":"System aktiv · In Echtzeit",
+    "ai.heading.eye":"Künstliche Intelligenz · SoulVIP",
+    "ai.heading.h2":"Während Sie genießen, <em>arbeitet die KI</em>",
+    "ai.heading.sub":"Ihr Luxusgeschäft schläft nie",
+    "ai.step1.t":"Kunde kontaktiert","ai.step1.d":"WhatsApp, Anruf, Web oder E-Mail — jeder Kanal",
+    "ai.step2.t":"KI analysiert","ai.step2.d":"Versteht die Anfrage und handelt sofort, 24/7",
+    "ai.step3.t":"Automatisiert","ai.step3.d":"Buchungen, Zahlungen, Erinnerungen und Follow-ups",
+    "ai.step4.t":"Ergebnisse","ai.step4.d":"Echtzeit-Daten und Metriken. Sie genießen einfach",
+    "ai.card1.t":"KI-Agent 24/7","ai.card1.d":"Beantwortet Kundenanfragen per WhatsApp in jeder Sprache, zu jeder Stunde, mit dem Ton und der Eleganz von SoulVIP.",
+    "ai.card2.t":"Automatisierung für Lieferanten","ai.card2.d":"Wir helfen Ihren Yacht-, Villen- und Autoanbietern, ihre Prozesse zu digitalisieren und zu automatisieren, um effizienter zusammenzuarbeiten.",
+    "ai.card3.t":"Luxuriöse Digitale Präsenz","ai.card3.d":"Website, Branding und Premium-Content-Strategie für Luxusunternehmen, die sich abheben wollen.",
+    "ai.cta.h":"Bereit, Ihr <em>Luxusunternehmen</em> zu automatisieren?","ai.cta.d":"Sagen Sie uns, welche Prozesse Sie delegieren möchten. Wir entwickeln eine maßgeschneiderte KI-Lösung für Ihr Unternehmen.","ai.cta.btn":"Demo Anfragen",
+    "bar.loc":"Ibiza · Teneriffa · Private Welt","bar.cta":"Anfrage Stellen",
+    "villas.btn":"Villen Ansehen",
+    "yachts.btn":"Yachten Ansehen",
+    "cars.btn":"Flotte Ansehen",
+    "vip.btn":"Erlebnisse Ansehen",
+    "foot.c":"© 2025 A.I. SoulVIP Solutions. Alle Rechte vorbehalten.","foot.p":"Datenschutz","foot.t":"AGB"
+  }
+};
+
+function setLang(l){
+  document.querySelectorAll('.lang').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
+  const t=T[l];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v=t[el.dataset.i18n];
+    if(v!==undefined)el.innerHTML=v;
+  });
+  document.documentElement.lang=l;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarjeta Soul VIP Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#111;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:48px;
+  padding:48px 32px;
+  font-family:'Montserrat',sans-serif;
+}
+
+/* ── label ── */
+.lbl{
+  font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;
+  color:rgba(201,168,76,.45);margin-bottom:-24px;
+}
+
+/* ── CARD BASE ── */
+/* Business card: 85mm × 54mm — scaled ×3.4 for screen → 956px × 607px */
+.card{
+  width:956px;height:607px;border-radius:24px;
+  position:relative;overflow:hidden;
+  background:#0a0a0a;
+  box-shadow:0 0 0 1px rgba(201,168,76,.25),0 24px 80px rgba(0,0,0,.9);
+  flex-shrink:0;
+}
+
+/* ── GOLD WAVE LEFT ── */
+.card::before{
+  content:'';position:absolute;
+  top:-10%;left:-80px;
+  width:200px;height:130%;
+  background:
+    radial-gradient(ellipse 60px 400px at 60% 40%,rgba(201,168,76,.55) 0%,rgba(201,168,76,.12) 50%,transparent 80%),
+    radial-gradient(ellipse 40px 200px at 30% 70%,rgba(201,168,76,.35) 0%,transparent 70%);
+  transform:rotate(-8deg);
+  pointer-events:none;z-index:0;
+}
+
+/* ── GOLD WAVE RIGHT ── */
+.card::after{
+  content:'';position:absolute;
+  top:-10%;right:-80px;
+  width:200px;height:130%;
+  background:
+    radial-gradient(ellipse 60px 400px at 40% 40%,rgba(201,168,76,.55) 0%,rgba(201,168,76,.12) 50%,transparent 80%),
+    radial-gradient(ellipse 40px 200px at 70% 70%,rgba(201,168,76,.35) 0%,transparent 70%);
+  transform:rotate(8deg);
+  pointer-events:none;z-index:0;
+}
+
+/* ── SPARKLES ── */
+.sp{
+  position:absolute;border-radius:50%;
+  background:rgba(201,168,76,.75);
+  pointer-events:none;z-index:1;
+}
+/* confetti rectangles */
+.cf{
+  position:absolute;
+  pointer-events:none;z-index:1;
+  background:rgba(201,168,76,.6);
+  border-radius:1px;
+}
+
+/* ── FRONT ── */
+.front{
+  display:flex;flex-direction:column;
+  align-items:center;
+  padding:28px 100px 24px;
+  position:relative;z-index:2;
+}
+
+.logo-img{
+  height:116px;width:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 0 14px rgba(201,168,76,.5));
+  display:block;
+}
+
+.name-script{
+  font-family:'Great Vibes',cursive;
+  font-size:58px;color:#C9A84C;
+  line-height:1;display:block;text-align:center;
+  text-shadow:0 0 24px rgba(201,168,76,.45);
+  margin-top:6px;
+}
+
+.hr{
+  width:220px;height:1px;margin:8px auto 6px;
+  background:linear-gradient(90deg,transparent,#C9A84C 40%,#C9A84C 60%,transparent);
+}
+
+.name-title{
+  font-size:12px;font-weight:600;letter-spacing:6px;
+  text-transform:uppercase;color:#C9A84C;
+  display:block;text-align:center;
+}
+
+/* service icons */
+.services{
+  display:flex;gap:36px;margin:14px 0 12px;
+}
+.svc{
+  width:54px;height:54px;border-radius:50%;
+  border:1.5px solid rgba(201,168,76,.55);
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(201,168,76,.06);
+}
+.svc svg{width:26px;height:26px;fill:#C9A84C}
+
+/* contact */
+.contact{
+  display:flex;flex-direction:column;
+  gap:6px;align-items:center;width:100%;
+}
+.crow{
+  display:flex;align-items:center;gap:10px;
+  font-size:13px;font-weight:400;color:#C9A84C;
+  letter-spacing:.8px;
+}
+.crow svg{width:20px;height:20px;fill:#C9A84C;flex-shrink:0}
+
+/* ── BACK ── */
+.back{
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:20px;position:relative;z-index:2;
+}
+
+.back-logo{
+  height:148px;width:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 0 20px rgba(201,168,76,.55));
+}
+
+.qr-ring{
+  width:190px;height:190px;border-radius:50%;
+  border:2px solid #C9A84C;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 24px rgba(201,168,76,.2),inset 0 0 24px rgba(201,168,76,.05);
+  padding:10px;background:rgba(201,168,76,.04);
+}
+.qr-ring img{
+  width:100%;height:100%;border-radius:50%;
+  display:block;
+}
+
+.tagline{
+  font-size:9px;font-weight:600;letter-spacing:6px;
+  text-transform:uppercase;
+  color:rgba(201,168,76,.55);
+}
+
+/* ── PRINT ── */
+@media print{
+  body{background:#fff;padding:0;gap:0}
+  .lbl{display:none}
+  .card{
+    width:85mm;height:54mm;border-radius:4mm;
+    page-break-after:always;
+    box-shadow:none;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  .front{padding:6mm 12mm 5mm}
+  .logo-img{height:26mm}
+  .name-script{font-size:13mm}
+  .name-title{font-size:2.5px;letter-spacing:2px}
+  .services{gap:8mm;margin:3mm 0}
+  .svc{width:12mm;height:12mm}
+  .svc svg{width:6mm;height:6mm}
+  .crow{font-size:2.8mm;gap:2mm}
+  .crow svg{width:4mm;height:4mm}
+  .back-logo{height:30mm}
+  .qr-ring{width:36mm;height:36mm}
+  .tagline{font-size:2px;letter-spacing:2px}
+  .hr{width:45mm}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ FRENTE ══════════════════ -->
+<div class="lbl">— FRENTE</div>
+<div class="card front">
+
+  <!-- sparkles scattered -->
+  <div class="sp" style="width:5px;height:5px;top:11%;left:19%"></div>
+  <div class="sp" style="width:3px;height:3px;top:28%;left:13%"></div>
+  <div class="sp" style="width:4px;height:4px;top:55%;left:16%"></div>
+  <div class="sp" style="width:3px;height:3px;top:72%;left:21%"></div>
+  <div class="sp" style="width:5px;height:5px;top:85%;left:14%"></div>
+  <div class="sp" style="width:4px;height:4px;top:13%;right:18%"></div>
+  <div class="sp" style="width:3px;height:3px;top:35%;right:13%"></div>
+  <div class="sp" style="width:5px;height:5px;top:60%;right:16%"></div>
+  <div class="sp" style="width:3px;height:3px;top:78%;right:20%"></div>
+  <div class="sp" style="width:4px;height:4px;top:90%;right:14%"></div>
+
+  <!-- confetti -->
+  <div class="cf" style="width:12px;height:4px;top:18%;left:17%;transform:rotate(-30deg);opacity:.5"></div>
+  <div class="cf" style="width:8px;height:3px;top:42%;left:11%;transform:rotate(20deg);opacity:.4"></div>
+  <div class="cf" style="width:10px;height:3px;top:65%;left:18%;transform:rotate(-15deg);opacity:.45"></div>
+  <div class="cf" style="width:14px;height:4px;top:22%;right:16%;transform:rotate(25deg);opacity:.5"></div>
+  <div class="cf" style="width:9px;height:3px;top:50%;right:12%;transform:rotate(-20deg);opacity:.4"></div>
+  <div class="cf" style="width:11px;height:3px;top:80%;right:17%;transform:rotate(10deg);opacity:.45"></div>
+
+  <!-- LOGO -->
+  <img src="Logo original.jpeg" alt="Soul VIP Solutions" class="logo-img">
+
+  <!-- NAME -->
+  <span class="name-script">Silvana Concierge</span>
+  <div class="hr"></div>
+
+  <!-- SERVICE ICONS -->
+  <div class="services">
+    <!-- Car -->
+    <div class="svc">
+      <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+    </div>
+    <!-- Plane -->
+    <div class="svc">
+      <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+    </div>
+    <!-- Yacht -->
+    <div class="svc">
+      <svg viewBox="0 0 24 24"><path d="M3 13.5L12 2l9 11.5H3zM20 21c-1.39 0-2.78-.47-4-1.32-2.44 1.71-5.56 1.71-8 0C6.78 20.53 5.39 21 4 21H2v2h2c1.38 0 2.74-.35 4-.99 2.52 1.29 5.48 1.29 8 0 1.26.65 2.62.99 4 .99h2v-2h-2z"/></svg>
+    </div>
+    <!-- Villa -->
+    <div class="svc">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact">
+    <!-- Facebook -->
+    <div class="crow">
+      <svg viewBox="0 0 24 24"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h8.615v-6.96h-2.338v-2.727h2.338v-2.01c0-2.325 1.42-3.591 3.5-3.591.699-.002 1.399.034 2.095.107v2.42h-1.435c-1.128 0-1.348.538-1.348 1.325v1.735h2.697l-.35 2.727h-2.348V21H20a1 1 0 001-1V4a1 1 0 00-1-1z"/></svg>
+      soulvipsolutions
+    </div>
+    <!-- Instagram -->
+    <div class="crow">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      soulvipsolutions.concierge.ai
+    </div>
+    <!-- Web -->
+    <div class="crow">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+      soulvipsolutions.com
+    </div>
+    <!-- Phone -->
+    <div class="crow">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      +34 644 198 767
+    </div>
+  </div>
+
+</div><!-- /front -->
+
+
+<!-- ══════════════════ REVERSO ══════════════════ -->
+<div class="lbl">— REVERSO</div>
+<div class="card back">
+
+  <!-- sparkles reverso -->
+  <div class="sp" style="width:4px;height:4px;top:12%;left:22%"></div>
+  <div class="sp" style="width:5px;height:5px;top:30%;left:15%"></div>
+  <div class="sp" style="width:3px;height:3px;top:70%;left:18%"></div>
+  <div class="sp" style="width:4px;height:4px;top:85%;left:24%"></div>
+  <div class="sp" style="width:4px;height:4px;top:15%;right:20%"></div>
+  <div class="sp" style="width:5px;height:5px;top:45%;right:15%"></div>
+  <div class="sp" style="width:3px;height:3px;top:75%;right:22%"></div>
+
+  <div class="cf" style="width:12px;height:4px;top:20%;left:18%;transform:rotate(-25deg);opacity:.5"></div>
+  <div class="cf" style="width:9px;height:3px;top:60%;left:14%;transform:rotate(15deg);opacity:.4"></div>
+  <div class="cf" style="width:11px;height:4px;top:25%;right:17%;transform:rotate(30deg);opacity:.5"></div>
+  <div class="cf" style="width:8px;height:3px;top:65%;right:16%;transform:rotate(-18deg);opacity:.4"></div>
+
+  <!-- LOGO -->
+  <img src="Logo original.jpeg" alt="Soul VIP Solutions" class="back-logo">
+
+  <!-- QR CODE -->
+  <div class="qr-ring">
+    <img
+      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fsoulvipsolutions.com&color=000000&bgcolor=ffffff&margin=6&qzone=2"
+      alt="QR soulvipsolutions.com">
+  </div>
+
+  <!-- TAGLINE -->
+  <div class="tagline">Luxury Concierge &nbsp;·&nbsp; Automatización &amp; IA &nbsp;·&nbsp; VIP Experience</div>
+
+</div><!-- /back -->
+
+
+<!-- ── INSTRUCCIONES ── -->
+<div style="max-width:680px;text-align:center;padding:16px 24px;border:1px solid rgba(201,168,76,.2);border-radius:8px;margin-top:8px">
+  <p style="font-size:11px;color:rgba(201,168,76,.6);letter-spacing:1px;line-height:1.8">
+    Para imprimir: <strong style="color:#C9A84C">Ctrl + P</strong> → Ajustar a tamaño real (85mm × 54mm) · Activar "Gráficos de fondo" en opciones de impresión<br>
+    Para exportar como imagen: captura de pantalla de cada tarjeta · O abre en Chrome y usa <strong style="color:#C9A84C">Ctrl + Shift + I → Device toolbar → exportar</strong>
+  </p>
+</div>
+
+</body>
+</html>
