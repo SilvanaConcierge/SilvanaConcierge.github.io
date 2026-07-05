@@ -76,25 +76,12 @@
       position: relative;
     }
 
-    .avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 1.5px solid var(--gold);
-      background: var(--dark);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 22px;
-      box-shadow: 0 0 28px rgba(212,175,55,.2), 0 0 0 6px rgba(212,175,55,.05);
-    }
-
-    .avatar-initials {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 300;
-      color: var(--gold);
-      letter-spacing: 3px;
+    .card-photo {
+      width: 100%;
+      display: block;
+      border-radius: 2px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 40px rgba(0,0,0,.6), 0 0 0 1px var(--border);
     }
 
     .card-name {
@@ -351,9 +338,7 @@
 
     <!-- HEADER -->
     <div class="card-header">
-      <div class="avatar">
-        <span class="avatar-initials">SA</span>
-      </div>
+      <img class="card-photo" src="Tarjeta presentacion Soulvipsolutions.jpeg" alt="Tarjeta Silvana Alvarez · Soul VIP Solutions">
       <h1 class="card-name">Silvana Alvarez</h1>
       <p class="card-brand">Silvana Concierge</p>
       <p class="card-company">Soul VIP Solutions · Luxury &amp; AI</p>
